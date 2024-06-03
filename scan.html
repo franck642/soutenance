@@ -13,7 +13,8 @@
 
     <!-- Google Font -->
     <link href="../../css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    
     <!-- CSS Global Compulsory (Do not remove)-->
     <link rel="stylesheet" href="css/font-awesome/all.min.css">
     <link rel="stylesheet" href="css/flaticon/flaticon.css">
@@ -21,7 +22,7 @@
 
     <!-- Template Style -->
     <link rel="stylesheet" href="css/style.css">
-
+    
   </head>
 
   <body>
@@ -112,7 +113,7 @@
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i class="fas fa-home"></i> </a></li>
               <li class="breadcrumb-item"> <i class="fas fa-chevron-right"></i> <a href="javascript:void(0)">Pages</a></li>
-              <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Registre</span></li>
+              <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Working Hours</span></li>
             </ol>
           </div>
         </div>
@@ -122,79 +123,92 @@
     banner -->
 
     <!--=================================
-    login -->
+    Service -->
     <section class="space-ptb">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-7 col-lg-9 col-md-10">
-            <div class="login-form">
-              <!-- Register form -->
-              <form id="registerForm" onsubmit="enregistrerDonnees(event)">
-
-                <h3 class="mb-4 text-center text-primary">S'inscrire à votre compte</h3>
-                <div class="row align-items-center">
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="name" placeholder="Nom de la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="address" placeholder="Adresse de la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="phone" placeholder="Numéro de téléphone de la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="email" class="form-control" id="email" placeholder="Adresse e-mail de la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="first_contact_name" placeholder="Nom du contact principal de la clinique (le cas échéant)">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="autorisation" placeholder="Autorisations d'accès aux données des patients pour les praticiens associés à la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="phone_first_contact_name" placeholder="Politiques de confidentialité de la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="identification_number" placeholder="Numéro d'enregistrement ou d'identification fiscale de la clinique (le cas échéant)">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                  </div>
-                  
-                  <div class="col-sm-12 mb-0">
-                    <button type="submit" id="regisfranck" class="btn btn-outline-primary my-3 my-sm-0">s'inscrire</button>
-                    <span class="ms-3">Utilisateur déjà enregistré ? <a href="#">Cliquer ici pour se connecter</a></span>
-                  </div>
-                </div>
-              </form>
-              <!-- Register form -->
-
-              <!-- login-social START -->
-              <div class="login-social-media">
-                <div class="mb-4 d-block text-center"><b class="bg-white pl-2 pr-2 d-block">Se connecter</b></div>
-                <form class="row">
-                  <div class="col-sm-6">
-                    <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-facebook-f"></i>Connexion avec Facebook</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn twitter-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-twitter"></i>Connexion avec Twitter</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn instagram-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i class="fab fa-instagram"></i>Connexion avec Instagram</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn linkedin-bg social-bg-hover d-block" href="#"><span><i class="fab fa-linkedin-in"></i>Connexion avec Linkedin</span></a>
-                  </div>
-                </form>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="checkout-info mb-4 mb-md-5">
+                  <p class="mb-0"><strong>Votre Santé, Notre Priorité!</strong> <a href="login.html">Cliquez ici pour vous connecter</a></p>
               </div>
-              <!-- login-social END -->
+            </div>
+            <div class="col-md-6">
+              <div class="checkout-info-coupon mb-5">
+                    <p class="checkout-info"><strong>Votre Bien-Être </strong>
+                      <a data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+                        Notre Engagement
+                      </a>
+                    </p>
+                    <div class="collapse" id="collapse">
+                      <div class="checkout-coupon">
+                      <p>If you have a coupon code, please apply it below.</p>
+                      <form class="form-row">
+                      <div class="mb-3 col-sm-12">
+                        <input type="text" class="form-control" id="coupon_code" placeholder="Coupon code">
+                      </div>
+                      </form>
+                      <a href="#" class="btn btn-primary">Apply coupon</a>
+                      </div>
+                    </div>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+          <div class="col-lg-4">
+              <!-- Barre latérale -->
+              <div class="sidebar">            
+              <!-- Care Services -->
+              <div class="widget bg-primary" style="background-image: url(images/pattern.png);">
+                <div class="widget-services-care text-center">
+                  <div class="services-care-icon mb-3"><i class="flaticon-support"></i></div>
+                  <h3 class="services-care-title text-white mb-4">Medical Care Services</h3>
+                  <button type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#qrCodeModal">
+                    Scan QR Code
+                  </button>
+                </div>
+                <div class="modal fade" id="qrCodeModal" tabindex="-1" role="dialog" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="qrCodeModalLabel">Scan QR Code</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <div id="reader" style="width: 100%; height: 325px;"></div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+             
+              <!-- Care Services -->
+              </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <div class="section-title left-divider">
+              <span>Nos Services B.I.O.Track</span>
+              <h2 style="font-size: 19px;">Nous Croyons Que Le Coeur Des Soins de Santé Est Le Service Aux Autres</h2>
+
+            </div>
+            <div class="feature-items pe-lg-5">
+              <div class="feature-icon">
+                <i class="fa fa-camera fa-5x"></i>
+              </div>
+              <div class="feature-content">
+                <h6>Scanner le QRcode télécharger</h6>
+                <p class="mb-0">C'est important car personne ne veut investir d'efforts importants dans quelque chose.</p>
+              </div>
+            </div>
+          </div>
+          </div>
       </div>
     </section>
     <!--=================================
-    Contact-info -->
+    Service -->
+
 
     <!--=================================
     footer -->
@@ -296,7 +310,13 @@
     <script src="js/popper/popper.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
 
+    <!-- html5-qrcode -->
+    <script src="https://unpkg.com/html5-qrcode@2.2.0/html5-qrcode.min.js" type="text/javascript"></script>
+
+    <!-- Page JS Implementing Plugins (Remove the plugin script here if site does not use that feature)-->
+
     <!-- Template Scripts (Do not remove)-->
     <script src="js/custom.js"></script>
+    <script src="js/backend/qrcode.js"></script>
   </body>
 </html>

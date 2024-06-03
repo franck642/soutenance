@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/flaticon/flaticon.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 
+    <!-- Page CSS Implementing Plugins (Remove the plugin CSS here if site does not use that feature)-->
+
     <!-- Template Style -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -111,8 +113,7 @@
           <div class="col-12">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i class="fas fa-home"></i> </a></li>
-              <li class="breadcrumb-item"> <i class="fas fa-chevron-right"></i> <a href="javascript:void(0)">Pages</a></li>
-              <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Registre</span></li>
+              <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> contact-us</span></li>
             </ol>
           </div>
         </div>
@@ -122,79 +123,113 @@
     banner -->
 
     <!--=================================
-    login -->
-    <section class="space-ptb">
+    Contact-info-->
+    <section class="space-ptb half-overlay left-position position-relative">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-7 col-lg-9 col-md-10">
-            <div class="login-form">
-              <!-- Register form -->
-              <form id="registerForm" onsubmit="enregistrerDonnees(event)">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-6 position-relative">
+            <!-- Get In Touch -->
+            <div class="contact-info">
+              <div class="section-title text-sm-start text-center">
+                <h3>Get In Touch With Us</h3>
+                <p>The best way is to develop and follow a plan. Start with your goals in mind and then work backwards to develop the plan.</p>
+              </div>
 
-                <h3 class="mb-4 text-center text-primary">S'inscrire à votre compte</h3>
+              <!-- Address -->
+              <div class="feature-item d-sm-flex d-block text-sm-start text-center">
+                <div class="feature-item-icon mb-sm-0 mb-4">
+                  <i class="flaticon-location"></i>
+                </div>
+                <div class="feature-item-content">
+                  <h4 class="feature-item-title">Address</h4>
+                  <span>6580 Allison Turnpike Creminfort, AL 32808-4509</span>
+                </div>
+              </div>
+              <!-- Address -->
+
+              <!-- Phone -->
+              <div class="feature-item d-sm-flex d-block text-sm-start text-center">
+                <div class="feature-item-icon mb-sm-0 mb-4">
+                  <i class="flaticon-call"></i>
+                </div>
+                <div class="feature-item-content">
+                  <h4 class="feature-item-title">Phone</h4>
+                  <span>+0123 456 789</span>
+                  <span>+704 279 1249</span>
+                </div>
+              </div>
+              <!-- Phone -->
+
+              <!-- Email -->
+              <div class="feature-item mb-0 d-sm-flex d-block text-sm-start text-center">
+                <div class="feature-item-icon mb-sm-0 mb-4">
+                  <i class="flaticon-email"></i>
+                </div>
+                <div class="feature-item-content">
+                  <h4 class="feature-item-title">Email</h4>
+                  <span>support@medileaf.com</span>
+                  <span>letstalk@medileaf.com</span>
+                </div>
+              </div>
+              <!-- Email -->
+            </div>
+            <!-- Get In Touch -->
+          </div>
+          <div class="col-lg-7 col-md-6 mt-md-0 mt-5">
+            <!-- Contact-form -->
+            <div class="contact-form ms-lg-4">
+              <div class="section-title">
+                <h3>We'd love to hear from you</h3>
+                <p>The price is something not necessarily defined as financial. It could be time, effort, sacrifice, money or perhaps, something else.</p>
+              </div>
+              <form>
                 <div class="row align-items-center">
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="name" placeholder="Nom de la clinique">
+                  <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" id="first-name" placeholder="First Name">
                   </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="address" placeholder="Adresse de la clinique">
+                  <div class="mb-3 col-md-6">
+                    <input type="email" class="form-control" id="email" placeholder="Email">
                   </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="phone" placeholder="Numéro de téléphone de la clinique">
+                  <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" id="phone" placeholder="Phone Number">
                   </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="email" class="form-control" id="email" placeholder="Adresse e-mail de la clinique">
+                   <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" id="subject" placeholder="Subject">
                   </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="first_contact_name" placeholder="Nom du contact principal de la clinique (le cas échéant)">
+                  <div class="mb-3 col-lg-12">
+                    <textarea class="form-control" rows="5" placeholder="Message"></textarea>
                   </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="autorisation" placeholder="Autorisations d'accès aux données des patients pour les praticiens associés à la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="phone_first_contact_name" placeholder="Politiques de confidentialité de la clinique">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="text" class="form-control" id="identification_number" placeholder="Numéro d'enregistrement ou d'identification fiscale de la clinique (le cas échéant)">
-                  </div>
-                  <div class="mb-3 col-md-12">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                  </div>
-                  
-                  <div class="col-sm-12 mb-0">
-                    <button type="submit" id="regisfranck" class="btn btn-outline-primary my-3 my-sm-0">s'inscrire</button>
-                    <span class="ms-3">Utilisateur déjà enregistré ? <a href="#">Cliquer ici pour se connecter</a></span>
+                  <div class="mb-3 col-sm-12 mb-0">
+                    <button type="submit" class="btn btn-outline-primary">Send Message</button>
                   </div>
                 </div>
               </form>
-              <!-- Register form -->
+            </div>
+            <!-- CSontact-form -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================
+    Contact-info-->
 
-              <!-- login-social START -->
-              <div class="login-social-media">
-                <div class="mb-4 d-block text-center"><b class="bg-white pl-2 pr-2 d-block">Se connecter</b></div>
-                <form class="row">
-                  <div class="col-sm-6">
-                    <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-facebook-f"></i>Connexion avec Facebook</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn twitter-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-twitter"></i>Connexion avec Twitter</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn instagram-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i class="fab fa-instagram"></i>Connexion avec Instagram</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn linkedin-bg social-bg-hover d-block" href="#"><span><i class="fab fa-linkedin-in"></i>Connexion avec Linkedin</span></a>
-                  </div>
-                </form>
-              </div>
-              <!-- login-social END -->
+    <!--=================================
+    Map -->
+    <section class="">
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <div class="col-lg-12">
+            <div class="map">
+              <!-- iframe START -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96873.54747598754!2d-74.01503722010821!3d40.64535309479206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24416947c2109%3A0x82765c7404007886!2sBrooklyn%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1583241765545!5m2!1sen!2sin" style="border:0; width: 100%; height: 100%" allowfullscreen=""></iframe>
+              <!-- iframe END -->
             </div>
           </div>
         </div>
       </div>
     </section>
     <!--=================================
-    Contact-info -->
+    Map -->
 
     <!--=================================
     footer -->
@@ -244,7 +279,7 @@
             <div class="footer-subscribe">
               <p>Sign up to our newsletter to get the latest news and offers.</p>
               <form>
-                <div class="form-group">
+                <div class="mb-3">
                   <input type="email" class="form-control" placeholder="Enter your email">
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
@@ -255,11 +290,11 @@
             <h6 class="text-primary">Opening Hours</h6>
             <div class="opening-time">
               <ul class="list-unstyled">
-                <li><i class="far fa-clock pe-1 text-primary"></i> Mon - Tue<span class="float-end">08:30 - 18:30</span></li>
-                <li><i class="far fa-clock pe-1 text-primary"></i> Wed- Thu<span class="float-end">08:30 - 18:30</span></li>
-                <li><i class="far fa-clock pe-1 text-primary"></i> Friday<span class="float-end">08:30 - 18:30</span></li>
-                <li><i class="far fa-clock pe-1 text-primary"></i> Saturday<span class="float-end">08:30 - 18:30</span></li>
-                <li><i class="far fa-clock pe-1 text-primary"></i> Sunday<span class="float-end">09:30 - 15:30</span></li>
+                <li><i class="far fa-clock pr-1 text-primary"></i> Mon - Tue<span class="float-end">08:30 - 18:30</span></li>
+                <li><i class="far fa-clock pr-1 text-primary"></i> Wed- Thu<span class="float-end">08:30 - 18:30</span></li>
+                <li><i class="far fa-clock pr-1 text-primary"></i> Friday<span class="float-end">08:30 - 18:30</span></li>
+                <li><i class="far fa-clock pr-1 text-primary"></i> Saturday<span class="float-end">08:30 - 18:30</span></li>
+                <li><i class="far fa-clock pr-1 text-primary"></i> Sunday<span class="float-end">09:30 - 15:30</span></li>
                 <li class="text-primary">Emergency<span class="float-end">24 hours</span></li>
              </ul>
            </div>
@@ -296,7 +331,10 @@
     <script src="js/popper/popper.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
 
+    <!-- Page JS Implementing Plugins (Remove the plugin script here if site does not use that feature)-->
+
     <!-- Template Scripts (Do not remove)-->
     <script src="js/custom.js"></script>
+
   </body>
 </html>

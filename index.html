@@ -70,29 +70,26 @@
             <div class="navbar-collapse collapse justify-content-center">
               <ul class="nav navbar-nav">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home<i class="far fa-plus-square"></i></a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="active"><a class="dropdown-item" href="index.html">Home 01</a></li>
-                  </ul>
+                  <a class="nav-link" href="index.html">Accueil<i class="far fa-plus-square"></i></a>                 
                 </li>
                 <li class="dropdown nav-item">
                   <a href="properties.html" class="nav-link" data-toggle="dropdown">Services<i class="far fa-plus-square"></i></a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="service.html">Service</a></li>
-                    <li><a class="dropdown-item" href="departments.html">Departments</a></li>
-                    <li><a class="dropdown-item" href="service-detail.html">Service Detail</a></li>
+                    <li><a class="dropdown-item" href="register_patient.html">Enrégistré un patient</a></li>
+                    <li><a class="dropdown-item" href="scan.html">Détail du patient</a></li>
+                    <li><a class="dropdown-item" href="patient.html">les patients</a></li>
                   </ul>
                 </li>
                  <li class="dropdown nav-item">
-                  <a href="#" class="nav-link" data-toggle="dropdown">Blog<i class="far fa-plus-square"></i></a>
+                  <a href="#" class="nav-link" data-toggle="dropdown">Rendez-vous<i class="far fa-plus-square"></i></a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                    <li><a class="dropdown-item" href="blog-detail.html">Blog Detail</a></li>
+                    <li><a class="dropdown-item" href="register_appointment.html">Prendre Rendez-vous</a></li>
+                    <li><a class="dropdown-item" href="appointment.html">Les Rendez-vous</a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact-us.html">
-                    Contact Us <i class="far fa-plus-square"></i>
+                    Contact<i class="far fa-plus-square"></i>
                   </a>
                 </li>
               </ul>
@@ -133,14 +130,14 @@
                 <img class="img-fluid" src="images/svg/02.svg" alt="">
               </div>
               <div class="banner-img3 position-absolute bottom-0 left-0">
-                <img class="img-fluid" src="images/svg/03.svg" alt="">
+                  <img class="img-fluid" src="images/svg/03.svg" alt="">
               </div>
               <div class="banner-img4 position-absolute bottom-0 right-0">
-                <img class="img-fluid" src="images/svg/04.svg" alt="">
+                  <img class="img-fluid" src="images/svg/04.svg" alt="">
               </div>
               <div class="banner-img5 position-absolute">
-                <img class="img-fluid" src="images/svg/05.svg" alt="">
-              </div>
+                  <img class="img-fluid" src="images/svg/05.svg" alt="">
+              </div>           
             </div>
           </div>
         </div>
@@ -149,319 +146,270 @@
     <!--=================================
     banner -->
 
-    <!--=================================
-    Schedule -->
+  <!--=================================
+    Horaire -->
     <section class="mt-xl-n5">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="schedule position-left-bg bg-white mb-0">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <div class="schedule-morden">
-                    <div class="icon">
-                      <i class="flaticon-emergency-call"></i>
+        <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+                <div class="schedule position-left-bg bg-white mb-0">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <div class="schedule-morden">
+                        <div class="icon">
+                        <i class="flaticon-emergency-call"></i>
+                        </div>
+                        <div class="schedule-morden-content">
+                        <h6>Cas d'urgence</h6>
+                        <span class="phone-number h4">+(704) 279-1249 </span>
+                        <p class="mb-0">Les objectifs positifs orientés vers le plaisir sont des motivateurs beaucoup plus puissants que les peurs négatives. Bien que chacun soit réussi séparément.</p>
+                        </div>
                     </div>
-                    <div class="schedule-morden-content">
-                      <h6>Emergency Case</h6>
-                      <span class="phone-number h4">+(704) 279-1249 </span>
-                      <p class="mb-0">Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately.</p>
                     </div>
-                  </div>
+                    <div class="col-md-4">
+                    <div class="schedule-morden">
+                        <div class="icon">
+                        <i class="flaticon-clock"></i>
+                        </div>
+                        <div class="schedule-morden-content">
+                        <h6>Heures d'ouverture</h6>
+                        <div class="opening-hourse">
+                            <ul class="list-unstyled">
+                            <li>
+                                <span>Lundi - Vendredi</span>
+                                <div class="time"> 08.30 - 18.30 </div>
+                            </li>
+                            <li>
+                                <span>Samedi</span>
+                                <div class="time"> 09.30 - 17.30 </div>
+                            </li>
+                            <li>
+                                <span>Dimanche</span>
+                                <div class="time"> 09.30 - 15.30 </div>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="schedule-morden last">
+                        <div class="icon">
+                        <i class="flaticon-calendar"></i>
+                        </div>
+                        <div class="schedule-morden-content">
+                        <h6>Emploi du temps des médecins</h6>
+                        <p class="mb-4">Pour ceux d'entre vous qui sont sérieux au sujet d'avoir plus, de faire plus, de donner plus et d'être plus, le succès est réalisable avec une certaine compréhension de ce qu'il faut faire.</p>
+                        <a class="btn btn-outline-primary" href="timetable.html"><i class="fa fa-address-book"></i>Voir l'emploi du temps</a>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="schedule-morden">
-                    <div class="icon">
-                      <i class="flaticon-clock"></i>
-                    </div>
-                    <div class="schedule-morden-content">
-                      <h6>Opening Hours</h6>
-                      <div class="opening-hourse">
-                        <ul class="list-unstyled">
-                          <li>
-                            <span>Monday – Friday</span>
-                            <div class="time"> 08.30 - 18.30 </div>
-                          </li>
-                          <li>
-                            <span>Saturday</span>
-                            <div class="time"> 09.30 - 17.30 </div>
-                          </li>
-                          <li>
-                            <span>Sunday</span>
-                            <div class="time"> 09.30 - 15.30 </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="schedule-morden last">
-                    <div class="icon">
-                      <i class="flaticon-calendar"></i>
-                    </div>
-                    <div class="schedule-morden-content">
-                      <h6>Doctors Timetable</h6>
-                      <p class="mb-4">For those of you who are serious about having more, doing more, giving more and being more, success is achievable with some understanding of what to do</p>
-                      <a class="btn btn-outline-primary" href="timetable.html"><i class="fa fa-address-book"></i>View Timetable</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
     </section>
     <!--=================================
-    Schedule -->
-
+    Horaire -->
+    
     <!--=================================
     About -->
     <section class="space-ptb  half-overlay left-position position-relative">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 pr-lg-6">
-            <div class="position-relative">
-              <div class="position-absolute top-0 left-0 mt-n5 ms-n5">
-                <img class="img-fluid" src="images/svg/06.svg" alt="">
-              </div>
-              <img class="img-fluid" src="images/about/01.jpg" alt="">
-              <div class="position-absolute bottom-0 right-0 mb-n5 me-lg-n5 z-index-n1">
-                <img class="img-fluid" src="images/svg/08.svg" alt="">
-              </div>
-              <div class="position-absolute bottom-0 right-0 m-3">
-                <img class="img-fluid" src="images/svg/07.svg" alt="">
-              </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pr-lg-6">
+                  <div class="position-relative">
+                    <div class="position-absolute top-0 left-0 mt-n5 ms-n5">
+                        <img class="img-fluid" src="images/svg/06.svg" alt="">
+                    </div>
+                    <img class="img-fluid" src="images/about/01.jpg" alt="">
+                    <div class="position-absolute bottom-0 right-0 mb-n5 me-lg-n5 z-index-n1">
+                        <img class="img-fluid" src="images/svg/08.svg" alt="">
+                    </div>
+                    <div class="position-absolute bottom-0 right-0 m-3">
+                        <img class="img-fluid" src="images/svg/07.svg" alt="">
+                    </div>
+                </div>                
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="section-title left-divider">
+                        <span>À propos de notre entreprise</span>
+                        <h2>Médecine spécialisée avec engagement, compassion et soin.</h2>
+                        <p class="mb-0">La première chose à retenir à propos du succès est que c'est un processus - rien de plus, rien de moins.</p>
+                    </div>
+                    <p>Il n'y a vraiment pas de magie en cela et ce n'est pas réservé uniquement à quelques personnes sélectionnées. En tant que tel, le succès n'a vraiment rien à voir avec la chance, le hasard ou le destin. Cela revient vraiment à comprendre les étapes du processus et ensuite à exécuter ces étapes.</p>
+                    <div class="row my-4 mb-lg-5">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Mettez les rames dans l'eau et commencez à ramer</li>
+                                <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>L'exécution est le facteur le plus déterminant dans la réalisation</li>
+                                <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>La plupart des gens pensent que le succès est difficile.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Le succès est quelque chose dont nous voulons tous plus.</li>
+                                <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>La meilleure façon est de développer et de suivre un plan.</li>
+                                <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>L'introspection est le truc.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex align-items-center">
+                        <img class="img-fluid me-3" src="images/sign.png" alt="">
+                        <div class="author-text ps-3">
+                            <h5 class="text-primary">Michael Jordan</h5>
+                            <p class="mb-0 text-secondary">PDG et Fondateur</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-6 mt-5 mt-lg-0">
-            <div class="section-title left-divider">
-              <span>About our company</span>
-              <h2>Specialty Medicine with Commitment, Compassion, and Care.</h2>
-              <p class="mb-0">The first thing to remember about success is that it is a process – nothing more, nothing less.</p>
-            </div>
-            <p>There is really no magic to it and it’s not reserved only for a select few people. As such, success really has nothing to do with luck, coincidence or fate. It really comes down to understanding the steps in the process and then executing on those steps.</p>
-            <div class="row my-4 mb-lg-5">
-              <div class="col-lg-6">
-                <ul class="list-unstyled">
-                  <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Get the oars in the water and start rowing</li>
-                  <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Execution is the single biggest factor in achievement</li>
-                  <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Most people believe that success is difficult.</li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled">
-                  <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Success is something of which we all want more.</li>
-                  <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>The best way is to develop and follow a plan.</li>
-                  <li class="mb-3 d-flex"><i class="far fa-plus-square pe-2 text-primary mt-1"></i>Introspection is the trick.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="d-sm-flex align-items-center">
-              <img class="img-fluid me-3" src="images/sign.png" alt="">
-              <div class="author-text ps-3">
-                <h5 class="text-primary">Michael Jordan</h5>
-                <p class="mb-0 text-secondary">CEO & Founder</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </section>    
     <!--=================================
     About -->
-
+        
     <!--=================================
     Service -->
     <section class="space-ptb">
-      <div class="container">
-        <div class="row justify-content-start">
-          <div class="col-xl-10">
-            <div class="section-title left-divider">
-              <span>Our Medileaf services</span>
-              <h2>We believe the heart of healthcare is service to others</h2>
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-xl-10">
+                    <div class="section-title left-divider">
+                        <span>Nos services Medileaf</span>
+                        <h2>Nous croyons que le cœur des soins de santé est le service aux autres</h2>
+                    </div>
+                    <div class="row mt-lg-5">
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <div class="feature-items pr-lg-5">
+                                <div class="feature-icon">
+                                    <i class="flaticon-ambulance"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h6>Ambulance Rapide</h6>
+                                    <p class="mb-0">La volonté est un bon début, mais il est très difficile de rester sur la bonne voie simplement par la volonté.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <div class="feature-items pr-lg-5">
+                                <div class="feature-icon">
+                                    <i class="flaticon-tooth"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h6>Spécialiste Dentaire</h6>
+                                    <p class="mb-0">La concentration consiste à avoir l'attention inébranlable pour accomplir ce que vous avez décidé de faire.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <div class="feature-items pr-lg-5">
+                                <div class="feature-icon">
+                                    <i class="flaticon-microscope"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h6>Laboratoire Moderne</h6>
+                                    <p class="mb-0">La triste réalité est que la majorité des gens n'ont aucune idée de ce qu'ils veulent vraiment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-4 mb-sm-0">
+                            <div class="feature-items pr-lg-5">
+                                <div class="feature-icon">
+                                    <i class="flaticon-baby-boy"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h6>Centre pour Enfants</h6>
+                                    <p class="mb-0">Pour ceux d'entre vous qui sont sérieux au sujet d'avoir plus, de faire plus, de donner plus et d'être plus.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-4 mb-sm-0">
+                            <div class="feature-items pr-lg-5">
+                                <div class="feature-icon">
+                                    <i class="flaticon-transfusion"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h6>Chirurgie Cardiaque</h6>
+                                    <p class="mb-0">Un certain degré de discipline dans la planification et l'exécution de ces plans, ainsi que la croyance que vous pouvez y arriver.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="feature-items pr-lg-5">
+                                <div class="feature-icon">
+                                    <i class="flaticon-liquid-soap"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h6>Conseils de Soin</h6>
+                                    <p class="mb-0">Laissez le succès vous motiver. Trouvez une image qui représente le succès pour vous.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
             </div>
-            <div class="row mt-lg-5">
-              <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-items pr-lg-5">
-                  <div class="feature-icon">
-                    <i class="flaticon-ambulance"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h6>Fast Ambulance</h6>
-                    <p class="mb-0">Willpower is a good start, but it’s very difficult to stay on track simply through willpower.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-items pr-lg-5">
-                  <div class="feature-icon">
-                    <i class="flaticon-tooth"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h6>Dental Specialist</h6>
-                    <p class="mb-0">Focus is having the unwavering attention to complete what you set out to do.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-items pr-lg-5">
-                  <div class="feature-icon">
-                    <i class="flaticon-microscope"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h6>Modern Laboratory</h6>
-                    <p class="mb-0">The sad thing is the majority of people have no clue about what they truly want.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6 mb-4 mb-sm-0">
-                <div class="feature-items pr-lg-5">
-                  <div class="feature-icon">
-                    <i class="flaticon-baby-boy"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h6>Children Center</h6>
-                    <p class="mb-0">For those of you who are serious about having more, doing more, giving more and being more</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6 mb-4 mb-sm-0">
-                <div class="feature-items pr-lg-5">
-                  <div class="feature-icon">
-                    <i class="flaticon-transfusion"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h6>Heart Surgery</h6>
-                    <p class="mb-0">Some discipline around planning and execution of those plans and belief that you can achieve.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="feature-items pr-lg-5">
-                  <div class="feature-icon">
-                    <i class="flaticon-liquid-soap"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h6>Care Advice</h6>
-                    <p class="mb-0">Let success motivate you. Find a picture of what epitomizes success to you</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="stethoscope-img d-none d-xl-block">
-            <img class="img-fluid" src="images/stethoscope.png" alt="">
-          </div>
         </div>
-      </div>
-    </section>
+    </section>   
     <!--=================================
     Service -->
-
-
 
     <!--=================================
     Testimonial -->
     <section class="mt-xl-n6">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-12">
-            <!-- Owl-carousel -->
-            <div class="owl-carousel testimonial" data-nav-arrow="false" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0" data-autoheight="true" style="background-image: url(images/pattern.png);">
-              <!-- Testimonial-01 START -->
-              <div class="item">
-                <div class="testimonial-item">
-                  <div class="testimonial-avatar">
-                    <img class="img-fluid rounded-circle" src="images/avatar/09.jpg" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                   I have gotten at least 50 times the value from Medileaf. I will let my mum know about this, she could really make use of Medileaf! Wow what great service, I love it! Medileaf is the real deal!
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-name">
-                      <div class="testimonial-quote">
-                        <i class="flaticon-left-quote"></i>
-                      </div>
-                      <h6 class="mb-1">Alice Williams</h6>
-                      <span>- Mother.</span>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Owl-carousel -->
+                    <div class="owl-carousel testimonial" data-nav-arrow="false" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0" data-autoheight="true" style="background-image: url({% static 'images/pattern.png' %});">
+                        <!-- Témoignage-01 DÉBUT -->
+                        <div class="item">
+                            <div class="testimonial-item">
+                                <div class="testimonial-avatar">
+                                    <img class="img-fluid rounded-circle" src="images/avatar/09.jpg" alt="">
+                                </div>
+                                <div class="testimonial-content">
+                                    J'ai obtenu au moins 50 fois la valeur de Medileaf. Je vais en informer ma mère, elle pourrait vraiment utiliser Medileaf ! Wow, quel excellent service, je l'adore ! Medileaf, c'est du sérieux !
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-name">
+                                        <div class="testimonial-quote">
+                                            <i class="flaticon-left-quote"></i>
+                                        </div>
+                                        <h6 class="mb-1">DASSI Franck</h6>
+                                        <span>FULLSTACK.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Témoignage-01 FIN -->
+    
+                        <!-- Témoignage-02 DÉBUT -->
+                        <div class="item">
+                            <div class="testimonial-item">
+                                <div class="testimonial-avatar">
+                                    <img class="img-fluid rounded-circle" src="images/avatar/04.jpg" alt="">
+                                </div>
+                                <div class="testimonial-content">
+                                    Nous avons été traités comme des rois. Inutile de dire que nous sommes extrêmement satisfaits des résultats. Merci de l'avoir rendu indolore, agréable et surtout sans tracas ! Cela correspond parfaitement à nos besoins.
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-name">
+                                        <div class="testimonial-quote">
+                                            <i class="flaticon-left-quote"></i>
+                                        </div>
+                                        <h6 class="mb-1">SOHOU Laurenn</h6>
+                                        <span>MARKETHIQUE.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Témoignage-02 FIN -->
                     </div>
-                  </div>
                 </div>
-              </div>
-              <!-- Testimonial-01 END -->
-
-              <!-- Testimonial-02 START -->
-              <div class="item">
-                <div class="testimonial-item">
-                  <div class="testimonial-avatar">
-                    <img class="img-fluid rounded-circle" src="images/avatar/04.jpg" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                   We were treated like royalty. Needless to say we are extremely satisfied with the results. Thank you for making it painless, pleasant and most of all hassle free! It fits our needs perfectly.
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-name">
-                      <div class="testimonial-quote">
-                        <i class="flaticon-left-quote"></i>
-                      </div>
-                      <h6 class="mb-1">Felica Queen</h6>
-                      <span>- Cancer client.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonial-02 END -->
-
-              <!-- Testimonial-03 START -->
-              <div class="item">
-                <div class="testimonial-item">
-                  <div class="testimonial-avatar">
-                    <img class="img-fluid rounded-circle" src="images/avatar/03.jpg" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                   We've seen amazing results already. Since I invested in Medileaf I made over 100,000 dollars profits. It's the perfect solution for our business. I was amazed at the quality of Medileaf.
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-name">
-                      <div class="testimonial-quote">
-                        <i class="flaticon-left-quote"></i>
-                      </div>
-                      <h6 class="mb-1">Paul Flavius</h6>
-                      <span>- Heather.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonial-03 END -->
-
-              <!-- Testimonial-04 START -->
-              <div class="item">
-                <div class="testimonial-item">
-                  <div class="testimonial-avatar">
-                    <img class="img-fluid rounded-circle" src="images/avatar/05.jpg" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                   I love Medileaf. I have gotten at least 50 times the value from Medileaf. I STRONGLY recommend Medileaf to EVERYONE interested in running a successful online business!
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-name">
-                      <div class="testimonial-quote">
-                        <i class="flaticon-left-quote"></i>
-                      </div>
-                      <h6 class="mb-1">Harry Russell</h6>
-                      <span>- Surgery client.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonial-04 END -->
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </section>        
     <!--=================================
     Testimonial -->
 
