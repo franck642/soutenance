@@ -1,5 +1,3 @@
-
-console.log("bienvenue");
 /*--
         INSCRIPTION
     -----------------------------------*/
@@ -33,19 +31,16 @@ form.addEventListener('submit', function(event) {
     password
   };
 
-  // Afficher les données dans la console (pour vérification)
-  console.log(data);
-
   // Envoyer les données au serveur avec fetch()
   $.ajax({
     type: 'POST',
-    url: 'http://172.18.48.1/hospital/create',
+    url: 'http://localhost:3004/hospital/create',
     data: JSON.stringify(data),
     contentType: 'application/json',
     success: function(response) {
       console.log('Inscription réussie :', response);
       // Affiche un message de succès avec SweetAlert 
-          if (result.isConfirmed) {
+          if (response == "Account create successfully") {
               // Redirige l'utilisateur vers la page de connexion en cas de succès
               window.location.href = 'login.html';
           }

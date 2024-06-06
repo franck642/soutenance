@@ -25,7 +25,24 @@ document.addEventListener('DOMContentLoaded', function() {
             date: document.getElementById('datetime').value
    
         };
-        console.log('Données du formulaire :', formData);
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3004/hospital/validated',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+              // Affiche un message de succès avec SweetAlert 
+                  if (response == "success") {
+                      // Redirige l'utilisateur vers la page de connexion en cas de succès
+                      console.log("ok")
+                  }
+            },
+            error: function(error) {
+                // Gérez les erreurs de l'API (par exemple, affichez un message d'erreur)
+                console.error('Erreur lors de l\'inscription :', error);
+            }
+        });
 
         // Vous pouvez ajouter d'autres traitements ici, comme l'envoi des données à un serveur via AJAX, etc.
     });
