@@ -4,7 +4,8 @@ console.log("rendez-vous");
         RENDEZ-VOUS
 -----------------------------------*/
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(e) {
+    e.preventDefault();
     // Sélection du formulaire
     var form = document.querySelector('form');
 
@@ -23,12 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
             email: document.getElementById('email').value,
             motif: document.getElementById('motif').value,
             date: document.getElementById('datetime').value
-   
         };
+
+        token = localStorage.getItem('medileaf');
+        //console.log(token)
 
         $.ajax({
             type: 'POST',
             url: 'http://localhost:3004/hospital/validated',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": "Bearer " + token
+            },
             data: JSON.stringify(formData),
             contentType: 'application/json',
             success: function(response) {
@@ -43,7 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Erreur lors de l\'inscription :', error);
             }
         });
-
-        // Vous pouvez ajouter d'autres traitements ici, comme l'envoi des données à un serveur via AJAX, etc.
     });
 });

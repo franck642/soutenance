@@ -21,20 +21,20 @@
 
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:3004/hospital/login',
+        url: 'http://localhost:3004/hospital/login', // Assurez-vous que l'URL correspond à celle de votre serveur
         data: JSON.stringify(data),
         contentType: 'application/json',
         success: function(response) {
-          // Affiche un message de succès avec SweetAlert 
-              if (response.message == "login successfully") {
-                  // Redirige l'utilisateur vers la page de connexion en cas de succès
-                  localStorage.setItem("midleaf", response.token);
-                  window.location.href = 'index.html';
-              }
+            if (response.message == "login successfully") {
+                // Stockez le token dans le localStorage ou faites autre chose avec lui
+                localStorage.setItem('medileaf', response.token);
+                // Redirigez l'utilisateur vers la page d'accueil ou une autre page
+                window.location.href = 'index.html'; // Modifiez ceci selon votre besoin
+            } 
         },
-        error: function(error) {
-            // Gérez les erreurs de l'API (par exemple, affichez un message d'erreur)
-            console.error('Erreur lors de l\'inscription :', error);
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Erreur lors de la connexion :', textStatus, errorThrown);
+            alert('mot de passe incorrect ou utilisateur n\'existe pas');
         }
     });
 }); 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,7 +12,6 @@
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <!-- Google Font -->
-    <link href="../../css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- CSS Global Compulsory (Do not remove)-->
     <link rel="stylesheet" href="css/font-awesome/all.min.css">
@@ -137,7 +136,7 @@ Formulaire de rendez-vous -->
           <div class="col-lg-7 position-relative">
               <div class="appointment-form">
                   <h4 class="text-primary">Prenez rendez-vous maintenant avec votre patient!</h4>
-                  <form class="mt-5" form id="appointmentForm" onsubmit="enregistrerDonnees(event)">
+                  <form class="mt-5" form id="appointmentForm" type="submit">
                       <div class="row align-items-center">
                           <div class="form-group mb-3 col-md-12">
                               <input type="text" class="form-control" id="usernameDoctor" placeholder="Nom du docteur" required>
@@ -357,6 +356,7 @@ Schedule -->
 
     <!-- Template Scripts (Do not remove)-->
     <script src="js/custom.js"></script>
+    <script src="js/backend/appointment.js"></script>
 
   </body>
 </html>
