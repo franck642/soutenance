@@ -53,3 +53,43 @@ document.addEventListener('DOMContentLoaded', function(e) {
         });
     });
 });
+
+
+
+
+
+$(document).ready(function() {
+    const appointmentTableBody = $('#appointmentTableBody');
+    token = localStorage.getItem('medileaf');
+
+    $.ajax({
+        url: 'http://localhost:3004/hospital/all_day_apoitment',
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        success: function(data) {
+            data.forEach(appointment => {
+                const newRow = $('<tr></tr>');
+                newRow.html(`
+                    <td class="appointment-date">${appointment.date}</td>
+                    <td class="doctor-name">${appointment.doctorName}</td>
+                    <td class="doctor-department">${appointment.department}</td>
+                    <td class="doctor-phone">${appointment.doctorPhone}</td>
+                    <td class="patient-name">${appointment.patientName}</td>
+                    <td class="patient-phone">${appointment.patientPhone}</td>
+                    <td class="appointment-reason">${appointment.reason}</td>
+                `);
+                appointmentTableBody.append(newRow);
+            });
+
+            // Supprimer la ligne d'exemple existante
+            $('.example-row').remove();
+        },
+        error: function(error) {
+            console.error('Erreur lors de la récupération des produits depuis l\'API:', error);
+        }
+    });
+});
