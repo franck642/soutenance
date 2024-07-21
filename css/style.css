@@ -6866,3 +6866,20 @@ ul.list-style-underline li {
     width: 33% !important; } }
 
 /*# sourceMappingURL=../css/style.css.map */
+
+
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+}
+.progress {
+  height: 5px;
+}
+.progress-bar {
+  background-color: #4a90e2; /* Couleur bleu ciel personnalisée */
+}
+.btn-nav {
+  margin-top: 20px;
+}

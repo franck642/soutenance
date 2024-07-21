@@ -117,7 +117,7 @@
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i class="fas fa-home"></i> </a></li>
               <li class="breadcrumb-item"> <i class="fas fa-chevron-right"></i> <a href="javascript:void(0)">Pages</a></li>
-              <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span>resgister patient </span></li>
+              <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span>Patient ???</span></li>
             </ol>
           </div>
         </div>
@@ -131,73 +131,116 @@
     <section class="space-pt">
       <div class="container">
           <div class="row justify-content-center">
-              <div class="col-lg-10">
-                  <div class="blood">
-                      <h2 class="text-center mb-5">Profil du Patient</h2>
-                      <div class="row">
-                          <div class="col-md-4 text-center">                             
-                              <h4>John Doe</h4>
+          <div class="col-lg-8 col-md-10"> 
+              <div class="blood">
+              <h4 class="mb-4">Informations personnelles</h4>
+              <form>
+                  <div class="row align-items-center">
+                  <div class="form-group mb-3 select-border col-md-12">                  
+                      <div class="row align-items-center">
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="username" placeholder="Nom complet du patient">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Date de naissance du patient">
+                      </div> 
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Sexe du patient">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Adresse postale du patient">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Numéro de téléphone du patient">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                          <input type="" class="form-control" id="email" placeholder="Adresse e-mail du patient (optionnel)">
+                      </div>                                                            
+                      </div>
+                  </div>                
+                  </div>
+              </form>
+              </div>         
+              <div class="blood">
+              <h4 class="mb-4">Informations médicales de base</h4>
+              <form>
+                  <div class="row align-items-center">
+                      <div class="form-group mb-3 select-border col-md-12">
+                          <div class="row align-items-center">
+                          <div class="mb-3 col-md-12">
+                              <input type="text" class="form-control" id="" placeholder="Numéro d'identification patient de l'hôpital">
+                          </div>                    
+                          <div class="mb-3 col-md-12">
+                              <input type="text" class="form-control" id="" placeholder="Poids du patient">
                           </div>
-                          <div class="col-md-8">
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <div class="card mb-4">
-                                          <div class="card-body">
-                                              <h5 class="card-title"><i class="fas fa-user-circle me-2"></i>Informations personnelles</h5>
-                                              <p class="card-text"><strong>Date de naissance :</strong> 01/01/1990</p>
-                                              <p class="card-text"><strong>Sexe :</strong> Masculin</p>
-                                              <p class="card-text"><strong>Adresse :</strong> 123 Rue Principale, Ville, Pays</p>
-                                              <p class="card-text"><strong>Téléphone :</strong> +1 234 567 890</p>
-                                              <p class="card-text"><strong>Email :</strong> john.doe@email.com</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="card mb-4">
-                                          <div class="card-body">
-                                              <h5 class="card-title"><i class="fas fa-notes-medical me-2"></i>Informations médicales</h5>
-                                              <p class="card-text"><strong>Numéro d'identification :</strong> 12345</p>
-                                              <p class="card-text"><strong>Poids :</strong> 75 kg</p>
-                                              <p class="card-text"><strong>Taille :</strong> 1,80 m</p>
-                                              <p class="card-text"><strong>Allergies :</strong> Arachides</p>
-                                              <p class="card-text"><strong>Conditions préexistantes :</strong> Asthme</p>
-                                              <p class="card-text"><strong>Groupe sanguin :</strong> A+</p>
-                                              <p class="card-text"><strong>Électrophorèse :</strong> Résultats normaux</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="card mb-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><i class="fas fa-notes-medical me-2"></i>Historique médical</h5>
-                                      <p class="card-text"><strong>Traitements antérieurs :</strong> Chirurgie du genou en 2015</p>
-                                      <p class="card-text"><strong>Chirurgies :</strong> Appendicectomie en 2010</p>
-                                      <p class="card-text"><strong>Hospitalisations :</strong> Pneumonie en 2018</p>
-                                      <p class="card-text"><strong>Médicaments actuels :</strong> Ventoline (inhalateur), 2 fois par jour</p>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <div class="card mb-4">
-                                          <div class="card-body">
-                                              <h5 class="card-title"><i class="fas fa-user-md me-2"></i>Références médicales</h5>
-                                              <p class="card-text"><strong>Médecins traitants :</strong> Dr. Jane Smith, Clinique Médicale, 555-1234</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="card mb-4">
-                                          <div class="card-body">
-                                              <h5 class="card-title"><i class="fas fa-emergency me-2"></i>Contact d'urgence</h5>
-                                              <p class="card-text"><strong>Contact :</strong> Marie Doe, 555-5678</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
+                          <div class="mb-3 col-md-12">
+                              <input type="text" class="form-control" id="" placeholder="Taille du patient">
+                          </div>
+                          <div class="mb-3 col-md-12">
+                              <input type="text" class="form-control" id="" placeholder="Allergies connues">
+                          </div>
+                          <div class="mb-3 col-md-12">
+                              <input type="text" class="form-control" id="" placeholder="Conditions médicales préexistantes">
+                          </div>
+                          <div class="mb-3 col-md-12">
+                              <input type="text" class="form-control" id="" placeholder="Résultats d'électrophorèse (le cas échéant)">
+                          </div>                                                                                  
                           </div>
                       </div>
+                  <div class="form-group select-border col-md-12">
+                      <label class="form-label">Groupe sanguin du patient</label>
+                      <select class="form-control basic-select" id="blood">
+                      <option value="1">A</option>
+                      <option value="5">B</option>
+                      <option value="2">AB</option>
+                      <option value="3">O</option>
+                      </select>
                   </div>
+                  </div>
+              </form>
+              </div> 
+              <div class="blood">
+              <h4 class="mb-4">Historique médical</h4>
+              <form>
+                  <div class="row align-items-center">
+                  <div class="form-group mb-3 select-border col-md-12">                  
+                      <div class="row align-items-center">
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Historique des traitements antérieurs">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Chirurgies antérieures">
+                      </div> 
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Hospitalisations antérieures">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                      <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Médicaments actuellement pris (dosage et fréquence)"></textarea>
+                      </div>                                                           
+                      </div>
+                  </div>                
+                  </div>
+              </form>
               </div>
+              <div class="blood">
+              <h4 class="mb-4">Références médicales et Contacts d'urgence</h4>
+                  <div class="row align-items-center">
+                  <div class="form-group mb-3 select-border col-md-12">                  
+                      <div class="row align-items-center">
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Nom et coordonnées des médecins traitants">
+                      </div>
+                      <div class="mb-3 col-md-12">
+                          <input type="text" class="form-control" id="" placeholder="Nom et numéro de téléphone d'un contact d'urgence">
+                      </div>                                                                                   
+                      </div>
+                  </div>                
+                  </div>
+              </div>           
+              <div class="text-end">
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>          
+          </div>
           </div>
       </div>
     </section>
