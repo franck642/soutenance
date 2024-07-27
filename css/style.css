@@ -6868,7 +6868,7 @@ ul.list-style-underline li {
 /*# sourceMappingURL=../css/style.css.map */
 
 
-.step {
+/* .step {
   display: none;
 }
 .step.active {
@@ -6879,7 +6879,34 @@ ul.list-style-underline li {
 }
 .progress-bar {
   background-color: #4a90e2; /* Couleur bleu ciel personnalisée */
+
+
+  .step-form {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
-.btn-nav {
-  margin-top: 20px;
+.step {
+    display: none;
+}
+.step.active {
+    display: block;
+}
+.step-navigation {
+    margin-top: 20px;
+}
+.progress {
+    height: 5px;
+    margin-bottom: 20px;
+}
+.form-control:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+
+.custom-logo {
+  width: 50%; /* Augmente la largeur de 50% */
+  height: auto; /* Conserve l'aspect ratio */
 }
