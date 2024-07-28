@@ -1,5 +1,3 @@
-console.log("je suis le patient");
-
 document.addEventListener('DOMContentLoaded', function() {
     let currentStep = 0;
     const steps = document.getElementsByClassName('step');
@@ -77,8 +75,31 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        console.log(data);
-    }
+        //console.log(data)
+        var token = localStorage.getItem('medileaf');
+        //console.log(token)
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3004/hospital/create/patient',
+             headers: {
+                 "Content-Type": "application/json",
+                 "Accept": "application/json",
+                 "Authorization": "Bearer " + token
+             },
+             data: JSON.stringify(data),
+             success: function(response) {
+                 if (response === "ok") {
+                     console.log("ok");
+                     // Ici, vous pouvez ajouter le code pour rediriger l'utilisateur ou afficher un message de succès
+                 }
+             },
+             error: function(error) {
+                 console.error('Erreur lors de la soumission du formulaire :', error);
+                 // Ici, vous pouvez ajouter le code pour afficher un message d'erreur à l'utilisateur
+             }
+         });
+        }
 
     document.getElementById('prevBtn').addEventListener('click', () => nextPrev(-1));
     document.getElementById('nextBtn').addEventListener('click', () => nextPrev(1));
