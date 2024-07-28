@@ -165,13 +165,16 @@
                               <input type="tel" class="form-control" id="phone" name="phone" required>
                           </div>
                           <div class="mb-3 col-md-12">
-                            <input type="" class="form-control" id="email" placeholder="Adresse e-mail du patient ">
+                            <label for="email" class="form-label">Adresse e-mail du patient</label>
+                            <input type="email" class="form-control" id="email" required>
                           </div>
                           <div class="mb-3 col-md-12">
-                            <input type="text" class="form-control" id="userurgence" placeholder="Nom complet du contact d'urgence">
+                            <label for="userurgence" class="form-label">Nom complet du contact d'urgence</label>
+                            <input type="text" class="form-control" id="userurgence" required>
                           </div>
                           <div class="mb-3 col-md-12">
-                            <input type="text" class="form-control" id="numberurgence" placeholder="Numéro du contact d'urgence">
+                            <label for="numberurgence" class="form-label">Numéro du contact d'urgence</label>
+                            <input type="text" class="form-control" id="numberurgence" required>
                           </div>
                       </div>
 
@@ -210,9 +213,10 @@
                       </div>
 
                       <div class="step-navigation">
-                          <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Précédent</button>
-                          <button type="button" class="btn btn-primary float-end" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
-                      </div>
+                        <button type="button" class="btn btn-secondary" id="prevBtn">Précédent</button>
+                        <button type="button" class="btn btn-primary float-end" id="nextBtn">Suivant</button>
+                        <button type="submit" class="btn btn-success float-end" id="submitBtn" style="display: none;">Enregistrer</button>
+                    </div>
                   </form>
               </div>
           </div>
