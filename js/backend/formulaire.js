@@ -1,94 +1,93 @@
-const form = document.getElementById('medical-form');
-const steps = document.getElementsByClassName('step');
-let currentStep = 0;
+console.log("je suis le patient");
 
-// Fonction pour récupérer le token depuis le stockage local
-function getToken() {
-    return localStorage.getItem('token');
-}
+document.addEventListener('DOMContentLoaded', function() {
+    let currentStep = 0;
+    const steps = document.getElementsByClassName('step');
+    const form = document.getElementById('medical-form');
+    const progressBar = document.querySelector('.progress-bar');
 
-function showStep(n) {
-    steps[currentStep].classList.remove('active');
-    steps[n].classList.add('active');
-    currentStep = n;
+    function showStep(n) {
+        steps[currentStep].classList.remove('active');
+        steps[n].classList.add('active');
+        currentStep = n;
 
-    document.getElementById('prevBtn').style.display = (currentStep === 0) ? 'none' : 'inline';
-    document.getElementById('nextBtn').innerHTML = (currentStep === steps.length - 1) ? 'Enregistrer' : 'Suivant';
-
-    updateProgressBar();
-}
-
-function updateProgressBar() {
-    const progress = ((currentStep + 1) / steps.length) * 100;
-    document.querySelector('.progress-bar').style.width = progress + '%';
-    document.querySelector('.progress-bar').setAttribute('aria-valuenow', progress);
-}
-
-function nextPrev(n) {
-    if (n === 1 && !validateForm()) return false;
-    
-    if (currentStep + n >= steps.length) {
-        submitForm();
-        return false;
-    }
-    
-    showStep(currentStep + n);
-}
-
-function validateForm() {
-    const inputs = steps[currentStep].getElementsByTagName('input');
-    for (let input of inputs) {
-        if (input.hasAttribute('required') && input.value === "") {
-            input.classList.add('is-invalid');
-            return false;
+        if (currentStep === 0) {
+            document.getElementById('prevBtn').style.display = 'none';
         } else {
-            input.classList.remove('is-invalid');
+            document.getElementById('prevBtn').style.display = 'inline';
         }
-    }
-    return true;
-}
 
-async function submitForm() {
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    const apiEndpoint = 'http://localhost:3004/hospital/create/patient';
+        if (currentStep === steps.length - 1) {
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'inline';
+        } else {
+            document.getElementById('nextBtn').style.display = 'inline';
+            document.getElementById('submitBtn').style.display = 'none';
+        }
 
-    const token = getToken();
-    if (!token) {
-        console.error('Token non trouvé. Veuillez vous reconnecter.');
-        // Gérer l'absence de token (redirection vers la page de connexion, par exemple)
-        return;
+        updateProgressBar();
     }
 
-    try {
-        const response = await fetch(apiEndpoint, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer " + token
-            },
-            body: JSON.stringify(data),
-        });
+    function nextPrev(n) {
+        if (n === 1 && !validateForm()) return false;
 
-        if (!response.ok) {
-            if (response.status === 401) {
-                console.error('Session expirée. Veuillez vous reconnecter.');
-                // Rediriger vers la page de connexion ou rafraîchir le token
-                return;
+        if (currentStep + n >= steps.length) {
+            displayFormData();
+            return false;
+        }
+
+        showStep(currentStep + n);
+    }
+
+    function validateForm() {
+        const inputs = steps[currentStep].getElementsByTagName('input');
+        const selects = steps[currentStep].getElementsByTagName('select');
+        let valid = true;
+
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].hasAttribute('required') && inputs[i].value === "") {
+                inputs[i].classList.add('is-invalid');
+                valid = false;
+            } else {
+                inputs[i].classList.remove('is-invalid');
             }
-            throw new Error('Erreur serveur');
         }
 
-        const result = await response.json();
-        console.log('Formulaire envoyé avec succès:', result);
-        alert('Formulaire soumis avec succès !');
-        // Redirection ou autre action après la soumission complète
-    } catch (error) {
-        console.error('Erreur lors de la soumission du formulaire:', error);
-        alert('Une erreur est survenue lors de la soumission du formulaire. Veuillez réessayer.');
-    }
-}
+        for (let i = 0; i < selects.length; i++) {
+            if (selects[i].hasAttribute('required') && selects[i].value === "") {
+                selects[i].classList.add('is-invalid');
+                valid = false;
+            } else {
+                selects[i].classList.remove('is-invalid');
+            }
+        }
 
-showStep(currentStep);
+        return valid;
+    }
+
+    function updateProgressBar() {
+        const progress = ((currentStep + 1) / steps.length) * 100;
+        progressBar.style.width = progress + '%';
+        progressBar.setAttribute('aria-valuenow', progress);
+    }
+
+    function displayFormData() {
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+        console.log(data);
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => nextPrev(-1));
+    document.getElementById('nextBtn').addEventListener('click', () => nextPrev(1));
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (validateForm()) {
+            displayFormData();
+        }
+    });
+
+    showStep(currentStep);
+});
