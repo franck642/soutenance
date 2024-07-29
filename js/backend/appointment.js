@@ -1,13 +1,11 @@
+console.log("rendez vous");
+ 
  document.addEventListener('DOMContentLoaded', function() {
      // Sélection du formulaire
-     var form = document.getElementById('appointmentForm');
-
-    // Ajout d'un écouteur d'événement pour la soumission du formulaire
+    var form = document.getElementById('appointmentForm');
     form.addEventListener('submit', function(event) {
-        // Empêcher le comportement par défaut du formulaire qui est de recharger la page
     event.preventDefault();
 
-//         // Récupération des valeurs des champs
     var formData = {
         usernameDoctor: document.getElementById('usernameDoctor').value,
         Department: document.getElementById('Department').value,
@@ -101,42 +99,81 @@
             }
         });
     });
-});
+});*/
 
 
 
-$(document).ready(function() {
-    const appointmentTableBody = $('#appointmentTableBody');
-    token = localStorage.getItem('medileaf');
+function fetchAndDisplayAppointments() {
+    // L'URL de votre API
+    const apiUrl = 'http://localhost:3004/hospital/all_apoitment';
+    const token = localStorage.getItem('medileaf');
 
-    $.ajax({
-        url: 'http://localhost:3004/hospital/all_day_apoitment',
+    // Options pour la requête fetch
+    const options = {
         method: 'GET',
         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "Bearer " + token
-        },
-        success: function(data) {
-            data.forEach(appointment => {
-                const newRow = $('<tr></tr>');
-                newRow.html(`
-                    <td class="appointment-date">${appointment.date}</td>
-                    <td class="doctor-name">${appointment.doctorName}</td>
-                    <td class="doctor-department">${appointment.department}</td>
-                    <td class="doctor-phone">${appointment.doctorPhone}</td>
-                    <td class="patient-name">${appointment.patientName}</td>
-                    <td class="patient-phone">${appointment.patientPhone}</td>
-                    <td class="appointment-reason">${appointment.reason}</td>
-                `);
-                appointmentTableBody.append(newRow);
-            });
-
-            // Supprimer la ligne d'exemple existante
-            $('.example-row').remove();
-        },
-        error: function(error) {
-            console.error('Erreur lors de la récupération des produits depuis l\'API:', error);
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
         }
+    };
+
+    // Effectuer la requête à l'API
+    fetch(apiUrl, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur réseau ou serveur');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Appeler la fonction pour afficher les données dans le tableau
+            displayAppointments(data);
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des rendez-vous:', error);
+            document.getElementById('appointmentTableBody').innerHTML = `
+                <tr>
+                    <td colspan="7">Erreur lors du chargement des rendez-vous. Veuillez réessayer.</td>
+                </tr>
+            `;
+        });
+}
+
+// Fonction pour afficher les rendez-vous dans le tableau HTML
+function displayAppointments(appointments) {
+    const tableBody = document.getElementById('appointmentTableBody');
+    tableBody.innerHTML = ''; // Vider le contenu existant
+
+    if (appointments.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="7">Aucun rendez-vous trouvé.</td>
+            </tr>
+        `;
+        return;
+    }
+
+    appointments.forEach(appointment => {
+        const row = `
+            <tr>
+                <td>${formatDate(appointment.date)}</td>
+                <td>${appointment.usernameDoctor}</td>
+                <td>${appointment.department}</td>
+                <td>${appointment.phoneDoctor}</td>
+                <td>${appointment.username}</td>
+                <td>${appointment.phoneInput}</td>
+                <td>${appointment.motif}</td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
     });
-});*/
+}
+
+// Fonction utilitaire pour formater la date (à adapter selon le format de date renvoyé par l'API)
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// Appeler la fonction pour récupérer et afficher les rendez-vous au chargement de la page
+document.addEventListener('DOMContentLoaded', fetchAndDisplayAppointments);

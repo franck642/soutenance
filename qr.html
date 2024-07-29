@@ -125,31 +125,34 @@
     <!--=================================
     Service -->
     <section class="space-ptb">
-      <div class="container">
-          <div class="row">
+      <div class="container" id="patient-info">
+        <div class="row">
           <div class="col-lg-4">
-              <!-- Barre latérale -->
-              <div class="sidebar">            
-              <!-- Services de soins -->
-              <div class="widget bg-primary" style="background-image: url(images/pattern.png);">
-                  <div class="widget-services-care text-center">
-                  <div class="services-care-icon mb-3"><i class="flaticon-support"></i></div>
-                  <h3 class="services-care-title text-white mb-4">Votre QRcode médical</h3>
-                  <a href="#" class="btn btn-white">Télécharger</a>
-                  </div>
+            <div class="sidebar">
+              <div class="card bg-primary text-white" style="background-image: url(images/pattern.png);">
+                <div class="card-body text-center">
+                  <h3 class="card-title">Votre QRcode médical</h3>
+                  <a href="#" id="download-qr" class="btn btn-light">Télécharger</a>
+                </div>
               </div>
-              <!-- Services de soins -->
-              </div>
+            </div>
           </div>
           <div class="col-lg-8 mt-lg-0 mt-5">
-              <div class="ms-lg-5">
+            <div class="ms-lg-5">
               <div class="section-title custom-title">
-                  <h2>Notre plateforme communautaire offrant des générations de soins. Merci, {{ patient.nom }} ! Votre enregistrement a été effectué avec succès.</h2>   
-              </div>                       
+                <h2 class="mb-4">Notre plateforme communautaire offrant des générations de soins</h2>
+                <div class="alert alert-success">
+                  <strong>Merci, <span id="patient-name"></span> !</strong> Votre enregistrement a été effectué avec succès.
+                  <br> Votre carte sera disponible d'ici 48H. Merci pour votre patience.
+                  <br> À bientôt !
+                </div>
+              </div>
+            </div>
           </div>
-          </div>
+        </div>
       </div>
     </section>
+    
     <!--=================================
     Service -->
 

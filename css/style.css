@@ -6907,6 +6907,7 @@ ul.list-style-underline li {
 
 
 .custom-logo {
-  width: 50%; /* Augmente la largeur de 50% */
-  height: auto; /* Conserve l'aspect ratio */
+  width: 300px; /* Ajustez la largeur selon vos besoins */
+  height: 300px; /* Ajustez la hauteur selon vos besoins */
+  object-fit: contain;
 }
