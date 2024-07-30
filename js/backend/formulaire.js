@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         const token = localStorage.getItem('medileaf');
-
+    
         fetch('http://localhost:3004/hospital/create/patient', {
             method: 'POST',
             headers: {
@@ -64,17 +64,22 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(response => {
             if (response.message === "user create successfully") {
-                const url = new URL('http://10.10.11.75:5500/qr.html');
+                // Utilisation de l'URL locale pour qr.html
+                const url = new URL('http://localhost:5500/qr.html');
                 Object.keys(data).forEach(key => url.searchParams.append(key, data[key]));
-                window.location.href = url;
+                window.location.href = url.toString();
+            } else {
+                // Gérer les autres cas de réponse ici
+                console.log("Réponse inattendue du serveur:", response);
+                // Vous pouvez ajouter un message d'erreur pour l'utilisateur ici
             }
         })
         .catch(error => {
             console.error('Erreur lors de la soumission du formulaire :', error);
             // Afficher un message d'erreur à l'utilisateur
+            alert("Une erreur s'est produite lors de la création du patient. Veuillez réessayer.");
         });
     }
-
     document.getElementById('prevBtn').addEventListener('click', () => nextPrev(-1));
     document.getElementById('nextBtn').addEventListener('click', () => nextPrev(1));
     form.addEventListener('submit', (e) => {
