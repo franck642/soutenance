@@ -34,7 +34,7 @@ form.addEventListener('submit', function(event) {
   // Envoyer les données au serveur avec fetch()
   $.ajax({
     type: 'POST',
-    url: 'http://localhost:3004/hospital/create',
+    url: 'https://medileaf-zgwn.onrender.com/hospital/create',
     data: JSON.stringify(data),
     contentType: 'application/json',
     success: function(response) {

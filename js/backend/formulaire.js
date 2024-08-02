@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = Object.fromEntries(formData);
         const token = localStorage.getItem('medileaf');
     
-        fetch('http://localhost:3004/hospital/create/patient', {
+        fetch('https://medileaf-zgwn.onrender.com/hospital/create/patient', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

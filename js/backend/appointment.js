@@ -21,7 +21,7 @@ console.log("rendez vous");
 
          $.ajax({
             type: 'POST',
-            url: 'http://localhost:3004/hospital/validated',
+            url: 'https://medileaf-zgwn.onrender.com/hospital/validated',
              headers: {
                  "Content-Type": "application/json",
                  "Accept": "application/json",
@@ -103,77 +103,3 @@ console.log("rendez vous");
 
 
 
-function fetchAndDisplayAppointments() {
-    // L'URL de votre API
-    const apiUrl = 'http://localhost:3004/hospital/all_apoitment';
-    const token = localStorage.getItem('medileaf');
-
-    // Options pour la requête fetch
-    const options = {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        }
-    };
-
-    // Effectuer la requête à l'API
-    fetch(apiUrl, options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erreur réseau ou serveur');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Appeler la fonction pour afficher les données dans le tableau
-            displayAppointments(data);
-        })
-        .catch(error => {
-            console.error('Erreur lors de la récupération des rendez-vous:', error);
-            document.getElementById('appointmentTableBody').innerHTML = `
-                <tr>
-                    <td colspan="7">Erreur lors du chargement des rendez-vous. Veuillez réessayer.</td>
-                </tr>
-            `;
-        });
-}
-
-// Fonction pour afficher les rendez-vous dans le tableau HTML
-function displayAppointments(appointments) {
-    const tableBody = document.getElementById('appointmentTableBody');
-    tableBody.innerHTML = ''; // Vider le contenu existant
-
-    if (appointments.length === 0) {
-        tableBody.innerHTML = `
-            <tr>
-                <td colspan="7">Aucun rendez-vous trouvé.</td>
-            </tr>
-        `;
-        return;
-    }
-
-    appointments.forEach(appointment => {
-        const row = `
-            <tr>
-                <td>${formatDate(appointment.date)}</td>
-                <td>${appointment.usernameDoctor}</td>
-                <td>${appointment.department}</td>
-                <td>${appointment.phoneDoctor}</td>
-                <td>${appointment.username}</td>
-                <td>${appointment.phoneInput}</td>
-                <td>${appointment.motif}</td>
-            </tr>
-        `;
-        tableBody.innerHTML += row;
-    });
-}
-
-// Fonction utilitaire pour formater la date (à adapter selon le format de date renvoyé par l'API)
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-// Appeler la fonction pour récupérer et afficher les rendez-vous au chargement de la page
-document.addEventListener('DOMContentLoaded', fetchAndDisplayAppointments);
