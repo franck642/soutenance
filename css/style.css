@@ -6911,3 +6911,9 @@ ul.list-style-underline li {
   height: 300px; /* Ajustez la hauteur selon vos besoins */
   object-fit: contain;
 }
+
+
+.custom-swal-spinner .swal2-icon.swal2-loading {
+  border-color: #006838; /* Change the border color to green */
+  border-left-color: transparent; /* Makes the spinner spin */
+}
