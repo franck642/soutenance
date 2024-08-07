@@ -75,12 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(response => {
             Swal.close(); // Fermer le spinner de SweetAlert2
-            if (response.message === "user create successfully") {
-                const url = new URL('http://localhost:5500/qr.html');
-                Object.keys(data).forEach(key => url.searchParams.append(key, data[key]));
-                window.location.href = url.toString();
-            } else {
-                console.log("Réponse inattendue du serveur:", response);
+            if (response.message === "user create successfully ") { // Notez l'espace à la fin
+                window.location.href = `http://localhost:5500/qr.html?id=${response.patientId}`;
+                console.log("Réponse du serveur:", response);
+            } else {               
                 Swal.fire({
                     icon: 'error',
                     title: 'Erreur',
@@ -113,15 +111,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showStep(currentStep);
 
-    function getUrlParams() {
-        return Object.fromEntries(new URLSearchParams(window.location.search));
-    }
-
-    const params = getUrlParams();
-    document.getElementById('patient-name').textContent = params.username || 'Patient';
-
-    document.getElementById('download-qr').addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log("Téléchargement du QR code demandé");
-    });
 });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     function getPatientInfo() {
+//         const urlParams = new URLSearchParams(window.location.search);
+//         const patientId = urlParams.get('id');
+
+//         if (!patientId) {
+//             console.error('Aucun ID de patient trouvé dans l\'URL');
+//             return;
+//         }
+
+//         const token = localStorage.getItem('medileaf');
+
+//         fetch(`http://localhost:3004/hospital/patient/${patientId}`, {
+//             method: 'GET',
+//             headers: {
+//                 "Accept": "application/json",
+//                 "Authorization": "Bearer " + token
+//             }
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log('Informations du patient:', data);
+//             // Vous pouvez également afficher ces informations dans votre page HTML si nécessaire
+//             // Par exemple :
+//             // document.getElementById('patient-name').textContent = data.username || 'Patient';
+//         })
+//         .catch(error => {
+//             console.error('Erreur lors de la récupération des informations du patient :', error);
+//         });
+//     }
+
+//     getPatientInfo();
+
+//     // Reste de votre code existant...
+// });

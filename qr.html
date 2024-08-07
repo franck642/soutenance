@@ -130,10 +130,11 @@
           <div class="col-lg-4">
             <div class="sidebar">
               <div class="card bg-primary text-white" style="background-image: url(images/pattern.png);">
-                <div class="card-body text-center">
-                  <h3 class="card-title">Votre QRcode médical</h3>
-                  <a href="#" id="download-qr" class="btn btn-light">Télécharger</a>
-                </div>
+                  <div class="card-body text-center">
+                      <h3 class="card-title">Votre QRcode médical</h3>
+                      <img id="qrcode-img" src="" alt="QR code"><br>
+                      <a href="#" id="download-qr" class="btn btn-light">Télécharger</a>
+                  </div>
               </div>
             </div>
           </div>
@@ -142,7 +143,7 @@
               <div class="section-title custom-title">
                 <h2 class="mb-4">Notre plateforme communautaire offrant des générations de soins</h2>
                 <div class="alert alert-success">
-                  <strong>Merci, <span id="patient-name"></span> !</strong> Votre enregistrement a été effectué avec succès.
+                  <strong>Merci, l'enregistrement du patient <span id="patient-name"></span></strong> a été effectué avec succès.
                   <br> Votre carte sera disponible d'ici 48H. Merci pour votre patience.
                   <br> À bientôt !
                 </div>
@@ -255,6 +256,8 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/popper/popper.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
    
 
@@ -262,5 +265,7 @@
 
     <!-- Template Scripts (Do not remove)-->
     <script src="js/custom.js"></script>
+    <script src="js/backend/formulaire.js"></script>
+    <script src="js/backend/patient.js"></script>
   </body>
 </html>

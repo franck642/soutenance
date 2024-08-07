@@ -6917,3 +6917,18 @@ ul.list-style-underline li {
   border-color: #006838; /* Change the border color to green */
   border-left-color: transparent; /* Makes the spinner spin */
 }
+
+
+.qrcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#qrcode-img {
+  max-width: 100px; /* Réduisez la taille maximale de l'image */
+  height: auto;
+  margin-bottom: 10px;
+}
+#download-qr {
+  margin-top: 10px;
+}
