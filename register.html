@@ -60,16 +60,19 @@
       <div class="main-header">
         <div class="container">
           <nav class="navbar navbar-light bg-white navbar-static-top navbar-expand-lg">
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+              <i class="fas fa-align-left"></i>
+            </button>
             <a class="navbar-brand" href="index.html">
-              B.I.O.Track
-            </a>
+                <img class="img-fluid custom-logo" src="/images/logo.jpg" alt="logo">
+            </a>         
             <div class="navbar-collapse collapse justify-content-center">
               <ul class="nav navbar-nav">
                 <li class="nav-item dropdown active">
                   <a class="nav-link" href="index.html">Accueil<i class="far fa-plus-square"></i></a>                 
                 </li>
                 <li class="dropdown nav-item">
-                  <a href="properties.html" class="nav-link" data-toggle="dropdown">Services<i class="far fa-plus-square"></i></a>
+                  <a href="#" class="nav-link" data-toggle="dropdown">Services<i class="far fa-plus-square"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="register_patient.html">Enrégistré un patient</a></li>
                     <li><a class="dropdown-item" href="scan.html">Détail du patient</a></li>
@@ -80,7 +83,7 @@
                   <a href="#" class="nav-link" data-toggle="dropdown">Rendez-vous<i class="far fa-plus-square"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="register_appointment.html">Prendre Rendez-vous</a></li>
-                    <li><a class="dropdown-item" href="appointment.html">Les Rendez-vous</a></li>
+                    <li><a class="dropdown-item" href="list_appointment.html">Les Rendez-vous</a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
@@ -90,12 +93,11 @@
                 </li>
               </ul>
             </div>
-            <!--=================================
-   
             <div class="add-listing d-none d-sm-block">
-              <a class="btn btn-outline-primary" href="#"><i class="fa fa-address-book"></i>Get a quote</a>
-            </div>
-             header -->
+              <a id="logoutButton" class="btn btn-outline-primary btn-sm" href="#">
+                  <i class="fa fa-sign-out-alt"></i> Log out
+              </a>
+          </div>
           </nav>
         </div>
       </div>
@@ -164,25 +166,6 @@
               </form>
               <!-- Register form -->
 
-              <!-- login-social START -->
-              <div class="login-social-media">
-                <div class="mb-4 d-block text-center"><b class="bg-white pl-2 pr-2 d-block">Se connecter</b></div>
-                <form class="row">
-                  <div class="col-sm-6">
-                    <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-facebook-f"></i>Connexion avec Facebook</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn twitter-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-twitter"></i>Connexion avec Twitter</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn instagram-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i class="fab fa-instagram"></i>Connexion avec Instagram</span></a>
-                  </div>
-                  <div class="col-sm-6">
-                    <a class="btn linkedin-bg social-bg-hover d-block" href="#"><span><i class="fab fa-linkedin-in"></i>Connexion avec Linkedin</span></a>
-                  </div>
-                </form>
-              </div>
-              <!-- login-social END -->
             </div>
           </div>
         </div>
