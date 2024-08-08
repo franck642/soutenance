@@ -9,4 +9,4 @@ const params = getQueryParams();
 const patientId = params.get('id');
 
 // Afficher l'ID dans la console
-console.log('ID du patient:', patientId);
+console.log('ID patient:', patientId);
