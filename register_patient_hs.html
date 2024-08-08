@@ -132,33 +132,40 @@
     <!--=================================
     blood -->
     <div class="container mt-5">
-      <form id="historique-medical-form">
-          <div class="step3">
+      <form id="historique-medical-form" class="mx-auto" style="max-width: 600px;">
+          <div class="step3 text-center">
               <h4 class="mb-4">Historique médical</h4>
               <div class="mb-3">
-                  <textarea class="form-control" id="treatments" rows="3" placeholder="Historique des traitements antérieurs"></textarea>
+                  <label for="treatments" class="form-label">Historique des traitements antérieurs</label>
+                  <textarea class="form-control" id="treatments" rows="3"></textarea>
               </div>
               <div class="mb-3">
-                  <textarea class="form-control" id="surgeries" rows="3" placeholder="Chirurgies antérieures"></textarea>
+                  <label for="surgeries" class="form-label">Chirurgies antérieures</label>
+                  <textarea class="form-control" id="surgeries" rows="3"></textarea>
               </div>
               <div class="mb-3">
-                  <textarea class="form-control" id="hospitalizations" rows="3" placeholder="Hospitalisations antérieures"></textarea>
+                  <label for="hospitalizations" class="form-label">Hospitalisations antérieures</label>
+                  <textarea class="form-control" id="hospitalizations" rows="3"></textarea>
               </div>
               <div class="mb-3">
-                  <textarea class="form-control" id="medications" rows="3" placeholder="Médicaments actuellement pris (dosage et fréquence)"></textarea>
+                  <label for="medications" class="form-label">Médicaments actuellement pris (dosage et fréquence)</label>
+                  <textarea class="form-control" id="medications" rows="3"></textarea>
               </div>
-              <div class="mb-3 col-md-12">
-                <input type="text" class="form-control" id="userdoctor" placeholder="Nom complet des médecins traitants">
+              <div class="mb-3">
+                  <label for="userdoctor" class="form-label">Nom complet des médecins traitants</label>
+                  <input type="text" class="form-control" id="userdoctor">
               </div>
-              <div class="mb-3 col-md-12">
-                <input type="text" class="form-control" id="numberdoctor" placeholder="Numéro des médecins traitants">
+              <div class="mb-3">
+                  <label for="numberdoctor" class="form-label">Numéro des médecins traitants</label>
+                  <input type="text" class="form-control" id="numberdoctor">
               </div>
           </div>
-          <div class="form-group col-sm-12">
-            <button type="submit" id="hs" class="btn btn-primary">Soumettre</button>
-        </div>
+          <div class="form-group text-center">
+              <button type="submit" id="registerhs" class="btn btn-primary">Soumettre</button>
+          </div>
       </form>
     </div>
+  
     <!--=================================
     blood -->
 
@@ -369,11 +376,14 @@
     <script src="js/select2/select2.full.js"></script>
     <script src="js/range-slider/ion.rangeSlider.min.js"></script>
     <script src="js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <!-- Template Scripts (Do not remove)-->
     <script src="js/custom.js"></script>
     <script src="js/step.js"></script>
+    <script src="js/backend/register-hs-medical.js"></script>
+   
 
   </body>
 </html>

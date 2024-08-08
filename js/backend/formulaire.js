@@ -113,38 +113,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     function getPatientInfo() {
-//         const urlParams = new URLSearchParams(window.location.search);
-//         const patientId = urlParams.get('id');
-
-//         if (!patientId) {
-//             console.error('Aucun ID de patient trouvé dans l\'URL');
-//             return;
-//         }
-
-//         const token = localStorage.getItem('medileaf');
-
-//         fetch(`http://localhost:3004/hospital/patient/${patientId}`, {
-//             method: 'GET',
-//             headers: {
-//                 "Accept": "application/json",
-//                 "Authorization": "Bearer " + token
-//             }
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log('Informations du patient:', data);
-//             // Vous pouvez également afficher ces informations dans votre page HTML si nécessaire
-//             // Par exemple :
-//             // document.getElementById('patient-name').textContent = data.username || 'Patient';
-//         })
-//         .catch(error => {
-//             console.error('Erreur lors de la récupération des informations du patient :', error);
-//         });
-//     }
-
-//     getPatientInfo();
-
-//     // Reste de votre code existant...
-// });

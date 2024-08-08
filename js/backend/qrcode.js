@@ -1,9 +1,10 @@
 $(document).ready(function() {
-    let html5QrCode = null; // Déclarez la variable html5QrCode ici
-    let qrCodeTimer = null; // Variable pour stocker le timer
+    let html5QrCode = null;
+    let qrCodeTimer = null;
 
     $('#qrCodeModal').on('shown.bs.modal', function (e) {
-        html5QrCode = new Html5Qrcode("reader"); // Initialisez l'instance Html5Qrcode ici
+        html5QrCode = new Html5Qrcode("reader");
+
         html5QrCode.start({ facingMode: "environment" }, {
             fps: 10,
             qrbox: {
@@ -12,57 +13,19 @@ $(document).ready(function() {
             }
         }, function(decodedText, decodedResult) {
             console.log("QR Code scanned successfully:", decodedText);
-            // Extraire l'ID du patient du lien
-            const url = new URL(decodedText);
-            const patientId = url.pathname.split('/').pop();
-            
-            console.log("ID du patient:", patientId);
-            var apiUrl = `https://medileaf-zgwn.onrender.com/hospital/patient/${patientId}`;
-            var token = localStorage.getItem('medileaf');
+            // Extraire l'ID de l'URL scannée
+            let url = new URL(decodedText);
+            let id = url.pathname.split('/').pop();
+            // Rediriger vers la nouvelle URL avec l'ID
+            window.location.href = `http://localhost:5500/qrcode.html?id=${id}`;
 
-            // Vérifier si le jeton est disponible
-            if (!token) {
-                console.error('No token found in localStorage');
-                clearInterval(qrCodeTimer);
-                html5QrCode.stop();
-                html5QrCode = null;
-                $('#qrCodeModal').modal('hide');
-                return;
-            }
-
-            // Paramètres de la requête AJAX
-            var settings = {
-                "url": apiUrl,
-                "method": "GET",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Authorization": "Bearer " + token
-                }
-            };
-
-            // Effectuer la requête AJAX
-            $.ajax(settings)
-                .done(function(response) {
-                clearInterval(qrCodeTimer);
-                html5QrCode.stop();
-                html5QrCode = null;
-                $('#qrCodeModal').modal('hide');
-                    console.log("Données du patient:", response);
-                    // Ici, vous pouvez traiter les données du patient comme vous le souhaitez
-                })
-                .fail(function(jqXHR, textStatus, errorThrown) {
-                    console.error("Erreur lors de la récupération des données du patient:", textStatus, errorThrown);
-                })
-                
-            .finally(() => {
-                // Nettoyage et fermeture du modal
-                clearInterval(qrCodeTimer);
-                html5QrCode.stop();
-                html5QrCode = null;
-                $('#qrCodeModal').modal('hide');
-            });
+            // Arrêtez le scanner et fermez le modal
+            clearInterval(qrCodeTimer);
+            html5QrCode.stop();
+            html5QrCode = null;
+            $('#qrCodeModal').modal('hide');
+        }).catch(err => {
+            console.error("QR Code scanning failed:", err);
         });
 
         // Configurer un timer pour vérifier si aucun lien n'est récupéré dans un délai donné
@@ -77,9 +40,78 @@ $(document).ready(function() {
 
     $('#qrCodeModal').on('hidden.bs.modal', function (e) {
         if (html5QrCode) {
-            html5QrCode.stop(); // Arrêtez le scanner lorsque le modal est fermé
-            html5QrCode = null; // Réinitialisez la variable html5QrCode
-            clearInterval(qrCodeTimer); // Arrête le timer si le modal est fermé avant que le lien soit récupéré
+            html5QrCode.stop();
+            html5QrCode = null;
+            clearInterval(qrCodeTimer);
         }
+
+        // Supprimez les messages d'alerte s'ils existent
+        document.querySelectorAll('#qrCodeModal .alert').forEach(function(alert) {
+            alert.remove();
+        });
     });
 });
+
+
+// Fonction pour récupérer la valeur d'un paramètre de l'URL
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// Récupérer l'ID de l'URL actuelle
+let id = getParameterByName('id');
+
+if (id) {
+    // URL de l'API et jeton d'authentification
+    var url = `https://medileaf-zgwn.onrender.com/hospital/patient/${id}`;
+    var token = localStorage.getItem('medileaf');
+
+
+
+    // Paramètres de la requête AJAX
+    var settings = {
+        "url": url,
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": "Bearer " + token
+        }
+    };
+
+    // Effectuer la requête AJAX
+    $.ajax(settings).done(function(response) {
+        console.log("Données du patient :", response);
+
+        $('#username').val(response.username);
+        $('#birthdate').val(response.birthdate);
+        $('#gender').val(response.gender);
+        $('#address').val(response.address);
+        $('#phone').val(response.phone);
+        $('#email').val(response.email);
+        $('#userurgence').val(response.userurgence);
+        $('#numberurgence').val(response.numberurgence);
+        $('#patientId').val(response.patientId);
+        $('#weight').val(response.weight);
+        $('#height').val(response.height);
+        $('#allergies').val(response.allergies);
+        $('#conditions').val(response.conditions);
+        $('#blood').val(response.blood);
+
+        // Mettre à jour les liens des boutons avec l'ID du patient
+        $('#viewHistoryBtn').attr('href', `register_patient_hs.html?id=${id}`);
+        $('#createHistoryBtn').attr('href', `list_patient_hs.html?id=${id}`);
+
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Erreur lors de la récupération des données du patient :", textStatus, errorThrown);
+    });
+} else {
+    console.log("Aucun ID trouvé dans l'URL.");
+}
