@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon: 'error',
                 title: 'Erreur',
                 text: `Une erreur est survenue : ${error.message}`,
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#006838'
             });
         }
     });
