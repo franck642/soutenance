@@ -6932,3 +6932,82 @@ ul.list-style-underline li {
 #download-qr {
   margin-top: 10px;
 }
+
+/* Général */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.col-md-6, .col-lg-4, .col-md-4 {
+  padding: 20px;
+}
+
+/* Section de connexion et coupon */
+
+
+.checkout-info-coupon p {
+  margin-bottom: 10px;
+}
+
+.collapse {
+  margin-top: 10px;
+}
+
+/* Barre latérale - Services de santé */
+.sidebar .widget {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.services-care-icon i {
+  font-size: 48px;
+}
+
+.btn-white {
+  background-color: white;
+  color: #007bff;
+}
+
+.modal-content {
+  background-color: #f8f9fa;
+}
+
+/* Section de services */
+.section-title span {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature-items {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.feature-icon i {
+  font-size: 48px;
+  color: #007bff;
+}
+
+.feature-content h6 {
+  margin-top: 10px;
+}

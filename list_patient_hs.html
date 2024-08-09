@@ -133,43 +133,50 @@
     <section class="space-pt">
       <div class="container">
           <div class="row justify-content-center">
-          <div class="col-lg-8 col-md-10"> 
-              <div class="blood">
-              <h4 class="mb-4">Historique médical</h4>
-              <form>
-                  <div class="row align-items-center">
-                  <div class="form-group mb-3 select-border col-md-12">                  
-                      <div class="row align-items-center">
-                      <div class="mb-3 col-md-12">
-                          <input type="text" class="form-control" id="" placeholder="Historique des traitements antérieurs">
-                      </div>
-                      <div class="mb-3 col-md-12">
-                          <input type="text" class="form-control" id="" placeholder="Chirurgies antérieures">
-                      </div> 
-                      <div class="mb-3 col-md-12">
-                          <input type="text" class="form-control" id="" placeholder="Hospitalisations antérieures">
-                      </div>
-                      <div class="mb-3 col-md-12">
-                      <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Médicaments actuellement pris (dosage et fréquence)"></textarea>
-                      </div>
-                      <div class="mb-3 col-md-12">
-                        <input type="text" class="form-control" id="userdoctor" placeholder="Nom complet des médecins traitants">
-                    </div>
-                    <div class="mb-3 col-md-12">
-                        <input type="text" class="form-control" id="numberdoctor" placeholder="Numéro des médecins traitants">
-                    </div>                                                            
-                      </div>
-                  </div>                
-                  </div>
-              </form>
-              </div>          
-              <div class="text-end">
-              <button type="submit" class="btn btn-primary">Mettre à jour</button>
-          </div>          
-          </div>
+              <div class="col-lg-8 col-md-10"> 
+                  <div class="blood">
+                      <h4 class="mb-4">Historique médical</h4>
+                      <form>
+                          <div class="row align-items-center">
+                              <div class="form-group mb-3 select-border col-md-12">                  
+                                  <div class="row align-items-center">
+                                      <div class="mb-3 col-md-12">
+                                          <label for="treatments" class="form-label">Traitements</label>
+                                          <input type="text" class="form-control" id="treatments" placeholder="Exemple : Insuline">
+                                      </div>
+                                      <div class="mb-3 col-md-12">
+                                          <label for="surgeries" class="form-label">Chirurgies</label>
+                                          <input type="text" class="form-control" id="surgeries" placeholder="Exemple : Appendicectomie">
+                                      </div> 
+                                      <div class="mb-3 col-md-12">
+                                          <label for="hospitalizations" class="form-label">Hospitalisations</label>
+                                          <input type="text" class="form-control" id="hospitalizations" placeholder="Exemple : Pneumonie">
+                                      </div>
+                                      <div class="mb-3 col-md-12">
+                                          <label for="medications" class="form-label">Médicaments</label>
+                                          <textarea type="text" class="form-control" id="medications" rows="3" placeholder="Exemple : Aspirine"></textarea>
+                                      </div>
+                                      <div class="mb-3 col-md-12">
+                                          <label for="userdoctor" class="form-label">Médecin traitant</label>
+                                          <input type="text" class="form-control" id="userdoctor" placeholder="Exemple : Dr. Dupont">
+                                      </div>
+                                      <div class="mb-3 col-md-12">
+                                          <label for="numberdoctor" class="form-label">Numéro de téléphone du médecin</label>
+                                          <input type="text" class="form-control" id="numberdoctor" placeholder="Exemple : +33 6 01 02 03 04">
+                                      </div>                                                            
+                                  </div>
+                              </div>                
+                          </div>
+                      </form>
+                  </div>          
+                  <div class="text-end">
+                      <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                  </div>          
+              </div>
           </div>
       </div>
-    </section>
+  </section>
+  
     <!--=================================
     blood -->
 
