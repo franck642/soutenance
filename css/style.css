@@ -6906,18 +6906,27 @@ ul.list-style-underline li {
 }
 
 
-.custom-logo {
-  width: 300px; /* Ajustez la largeur selon vos besoins */
-  height: 300px; /* Ajustez la hauteur selon vos besoins */
-  object-fit: contain;
-}
-
-
 .custom-swal-spinner .swal2-icon.swal2-loading {
   border-color: #006838; /* Change the border color to green */
   border-left-color: transparent; /* Makes the spinner spin */
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  max-height: 70px;  /* Ajustez cette valeur selon vos besoins */
+  width: 90px;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .logo-img {
+    max-height: 40px;  /* Taille réduite pour les écrans plus petits */
+  }
+}
 
 .qrcode-container {
   display: flex;
@@ -7011,3 +7020,12 @@ body {
 .feature-content h6 {
   margin-top: 10px;
 }
+
+#logoutButton {
+  font-size: 0.75rem; /* Réduit la taille de la police à 75% de la normale */
+  padding: 5px 10px; /* Réduit l'espacement intérieur du bouton */
+  line-height: normal; /* Assure que la hauteur de ligne correspond à la taille de la police */
+  margin-right: 4px; /* Optionnel: Ajoute une petite marge à droite si le bouton est côte à côte avec d'autres éléments */
+  min-width: 50px; /* Définit une largeur minimale pour s'assurer que le bouton ne devient pas trop petit */
+}
+

@@ -6,10 +6,10 @@
     <meta name="description" content="Medileaf - Health and Medical HTML Template">
     <meta name="author" content="potenzaglobalsolutions.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>B.I.O.Track</title>
+    <title>BIOTrack</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="shortcut icon" href="/images/logo.png">
 
     <!-- Google Font -->
     <link href="../../css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -43,10 +43,10 @@
                   <a href="#" class="me-2"><i class="fab fa-pinterest"></i></a>
                   <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
                 </div>
-                <div class="login order-2 order-md-2">
-                  <a href="login.html" class="btn btn-sm btn-outline-primary">Login</a>
+                <div class="login order-2 order-md-2" id="loginRegisterButtons">
+                  <a href="login.html" class="btn btn-sm btn-outline-primary" id="loginButton">Login</a>
                   <span class="mx-2 text-white">|</span>
-                  <a href="Register.html" class="btn btn-sm btn-outline-primary">Register</a>
+                  <a href="Register.html" class="btn btn-sm btn-outline-primary" id="registerButton">Register</a>
                 </div>
               </div>
             </div>
@@ -56,42 +56,44 @@
         <!-- En-tête principal -->
         <div class="main-header">
           <nav class="navbar navbar-light bg-white navbar-expand-lg">
-            <a class="navbar-brand" href="index.html">
-              <img class="img-fluid custom-logo" src="/images/logo.jpg" alt="logo" style="max-height: 50px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-              <i class="fas fa-align-left"></i>
-            </button>
-            
-            <!-- Menu de navigation -->
-            <div class="collapse navbar-collapse" id="mainNavbar">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="register_patient.html">Enrégistré un patient</a></li>
-                    <li><a class="dropdown-item" href="scan.html">Détail du patient</a></li>
-                    <li><a class="dropdown-item" href="patient.html">les patients</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Rendez-vous</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="register_appointment.html">Prendre Rendez-vous</a></li>
-                    <li><a class="dropdown-item" href="list_appointment.html">Les Rendez-vous</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact-us.html">Contact</a>
-                </li>
-              </ul>
-              <div class="mt-2 mt-lg-0">
-                <a id="logoutButton" class="btn btn-outline-primary btn-sm" href="#">
-                  <i class="fa fa-sign-out-alt"></i> Log out
-                </a>
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">
+                <img src="/images/logo.png" alt="logo" class="img-fluid logo-img">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <i class="fas fa-align-left"></i>
+              </button>
+              
+              <!-- Menu de navigation -->
+              <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Accueil</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="register_patient.html">Enregistrer un patient</a></li>
+                      <li><a class="dropdown-item" href="scan.html">Détail du patient</a></li>
+                      <li><a class="dropdown-item" href="patient.html">Les patients</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Rendez-vous</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="register_appointment.html">Prendre Rendez-vous</a></li>
+                      <li><a class="dropdown-item" href="list_appointment.html">Les Rendez-vous</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact-us.html">Contact</a>
+                  </li>
+                </ul>
+                <div class="mt-2 mt-lg-0" id="logoutButtonContainer" style="display: none;">
+                  <a id="logoutButton" class="btn btn-outline-primary btn-sm" href="#">
+                    <i class="fa fa-sign-out-alt"></i> Logout
+                  </a>
+                </div>
               </div>
             </div>
           </nav>
@@ -262,6 +264,7 @@
 
     <!-- Template Scripts (Do not remove)-->
     <script src="js/custom.js"></script>
+    <script src="js/backend/login.js"></script>
     <script src="js/backend/formulaire.js"></script>
     <script src="js/backend/patient.js"></script>
   </body>

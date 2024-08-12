@@ -1,62 +1,66 @@
-/*--
-        CONNEXION
-    -----------------------------------*/  
-    // Sélectionner le formulaire
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélection des éléments du DOM
     const loginForm = document.getElementById('MyloginForm');
-    
-    // Ajouter un écouteur d'événement sur la soumission du formulaire
-    loginForm.addEventListener('submit', function(event) {
-      // Empêcher le rechargement de la page par défaut
-      event.preventDefault();
-    
-      // Récupérer les valeurs des champs du formulaire
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-    
-      // Créer un objet contenant les données du formulaire
-      const data = {
-        email,
-        password
-      };
+    const loginRegisterButtons = document.getElementById('loginRegisterButtons');
+    const logoutButtonContainer = document.getElementById('logoutButtonContainer');
+    const logoutButton = document.getElementById('logoutButton');
 
-      $.ajax({
-        type: 'POST',
-        url: 'https://medileaf-zgwn.onrender.com/hospital/login', // Assurez-vous que l'URL correspond à celle de votre serveur
-        data: JSON.stringify(data),
-        contentType: 'application/json',
-        success: function(response) {
-            if (response.message == "login successfully") {
-                // Stockez le token dans le localStorage ou faites autre chose avec lui
-                localStorage.setItem('medileaf', response.token);
-                // Redirigez l'utilisateur vers la page d'accueil ou une autre page
-                window.location.href = 'index.html'; // Modifiez ceci selon votre besoin
-            } 
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('Erreur lors de la connexion :', textStatus, errorThrown);
-            alert('mot de passe incorrect ou utilisateur n\'existe pas');
+    // Fonction pour mettre à jour l'affichage des boutons d'authentification
+    function updateAuthButtons() {
+        const token = localStorage.getItem('medileaf');
+        if (token) {
+            if (loginRegisterButtons) loginRegisterButtons.style.display = 'none';
+            if (logoutButtonContainer) logoutButtonContainer.style.display = 'block';
+        } else {
+            if (loginRegisterButtons) loginRegisterButtons.style.display = 'block';
+            if (logoutButtonContainer) logoutButtonContainer.style.display = 'none';
         }
-    });
-}); 
+    }
 
+    // Appel initial pour mettre à jour l'affichage des boutons
+    updateAuthButtons();
 
+    // Gestion de la connexion
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const data = { email, password };
 
-// function getCookie(name) {
-//     let cookieValue = null;
-//     if (document.cookie && document.cookie !== '') {
-//         const cookies = document.cookie.split(';');
-//         for (let i = 0; i < cookies.length; i++) {
-//             const cookie = cookies[i].trim();
-//             // Si le nom du cookie correspond au début de la chaîne
-//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-//                 break;
-//             }
-//         }
-//     }
-//     return cookieValue;
-// }
+            $.ajax({
+                type: 'POST',
+                url: 'https://medileaf-zgwn.onrender.com/hospital/login',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function(response) {
+                    if (response.message == "login successfully") {
+                        localStorage.setItem('medileaf', response.token);
+                        // Mise à jour immédiate des boutons après la connexion réussie
+                        updateAuthButtons();
+                        // Redirection après un court délai pour permettre la mise à jour de l'affichage
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 100);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Erreur lors de la connexion :', textStatus, errorThrown);
+                    alert('Mot de passe incorrect ou utilisateur n\'existe pas');
+                }
+            });
+        });
+    }
 
-// // Exemple d'utilisation :
-// const myCookieValue = getCookie('nom_du_cookie');
-// console.log(myCookieValue);
+    // Gestion de la déconnexion
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            localStorage.removeItem('medileaf');
+            updateAuthButtons();
+            window.location.href = 'index.html';
+        });
+    }
+});
