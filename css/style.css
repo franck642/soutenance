@@ -7027,5 +7027,30 @@ body {
   line-height: normal; /* Assure que la hauteur de ligne correspond à la taille de la police */
   margin-right: 4px; /* Optionnel: Ajoute une petite marge à droite si le bouton est côte à côte avec d'autres éléments */
   min-width: 50px; /* Définit une largeur minimale pour s'assurer que le bouton ne devient pas trop petit */
+  justify-content: center;
+
 }
 
+
+.footer-logo-img {
+  max-width: 70px; /* Ajustez cette valeur selon vos besoins */
+  height: auto;
+}
+
+.row.align-items-start {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-title {
+  height: 40px; /* Ajustez cette valeur selon vos besoins */
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .footer-title {
+    height: auto;
+    margin-top: 20px;
+  }
+}
