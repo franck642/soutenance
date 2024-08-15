@@ -1,40 +1,74 @@
 $(document).ready(function() {
-    // Fonction pour récupérer les paramètres de l'URL
-    function getQueryParams(param) {
-        const params = new URLSearchParams(window.location.search);
-        return params.get(param);
-    }
+  function getQueryParams(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(param);
+  }
 
-    // Récupérer l'ID depuis les paramètres
-    const patientId = getQueryParams('id');
+  const patientId = getQueryParams('id');
+  console.log('ID patient:', patientId);
 
-    // Afficher l'ID dans la console
-    console.log('ID patient:', patientId);
+  if (patientId) {
+      const apiUrl = `https://medileaf-zgwn.onrender.com/hospital/medicalhistory/info/${patientId}`;
+      const token = localStorage.getItem('medileaf');
 
-    // Vérifier si un ID de patient a été trouvé
-    if (patientId) {
-        // URL de l'API avec l'ID du patient
-        const apiUrl = `https://medileaf-zgwn.onrender.com/hospital/medicalhistory/info/${patientId}`;
-        const token = localStorage.getItem('medileaf');
+      $.ajax({
+          url: apiUrl,
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`
+          },
+          success: function(response) {
+              console.log('Informations du patient:', response);
+              
+              const tableBody = $('table tbody');
+              tableBody.empty();
+              
+              if (Array.isArray(response.message) && response.message.length > 0) {
+                  response.message.forEach(entry => {
+                      const row = $('<tr>');
+                      
+                      // Formatage de la date
+                      const date = new Date(entry.createdAt);
+                      const formattedDate = date.toLocaleString('fr-FR', {
+                          year: 'numeric',
+                          month: '2-digit',
+                          day: '2-digit',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                      });
 
-        // Configuration de la requête AJAX
-        $.ajax({
-            url: apiUrl,
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            success: function(response) {
-                // Afficher les informations dans la console
-                console.log('Informations du patient:', response);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.error('Erreur lors de la récupération des informations du patient:', textStatus, errorThrown);
-            }
-        });
-    } else {
-        console.error('ID du patient non trouvé dans l\'URL');
-    }
+                      row.append(`<td>${formattedDate}</td>`);
+                      row.append(`<td>${entry.hospital_name}</td>`);
+                      row.append(`<td>${entry.treatments}</td>`);
+                      row.append(`<td>${entry.userdoctor}</td>`);
+                      
+                      const actionCell = $('<td>');
+                      const actionButton = $('<a>')
+                          .addClass('btn btn-primary btn-sm')
+                          .text('Détails')
+                          .attr('href', `detail_hs.html?id=${entry._id}`);
+                      actionCell.append(actionButton);
+                      row.append(actionCell);
+                      
+                      tableBody.append(row);
+                  });
+              } else {
+                  tableBody.append('<tr><td colspan="5" class="text-center">Aucun historique médical trouvé</td></tr>');
+              }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+              console.error('Erreur lors de la récupération des informations du patient:', textStatus, errorThrown);
+              $('table tbody').html('<tr><td colspan="5" class="text-center text-danger">Erreur lors de la récupération des données</td></tr>');
+          }
+      });
+  } else {
+      console.error('ID du patient non trouvé dans l\'URL');
+      $('table tbody').html('<tr><td colspan="5" class="text-center text-danger">ID du patient non trouvé dans l\'URL</td></tr>');
+  }
 });
+
+
+
+

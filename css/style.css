@@ -7054,3 +7054,66 @@ body {
     margin-top: 20px;
   }
 }
+
+
+
+
+body {
+  background-color: #f8f9fa;
+}
+.patients-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.table {
+  margin-bottom: 0;
+}
+.table thead th {
+  background-color: #006838;
+  color: white;
+  border: none;
+  padding: 10px 5px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,104,56,0.05);
+}
+.btn-primary {
+  background-color: #006838;
+  border: none;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+.btn-primary:hover {
+  background-color: #004e2a;
+}
+h2 {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.pagination {
+  justify-content: center;
+  margin-top: 30px;
+}
+.page-item.active .page-link {
+  background-color: #006838;
+  border-color: #006838;
+}
+.page-link {
+  color: #006838;
+  padding: 0.20rem 0.5rem;
+  font-size: 0.875rem;
+}
+.pagination .page-link {
+  min-width: 50px;
+  text-align: center;
+}
