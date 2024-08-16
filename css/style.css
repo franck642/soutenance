@@ -7058,9 +7058,7 @@ body {
 
 
 
-body {
-  background-color: #f8f9fa;
-}
+
 .patients-section {
   max-width: 1000px;
   margin: 0 auto;
@@ -7085,12 +7083,12 @@ body {
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0,104,56,0.05);
 }
-.btn-primary {
+/* .btn-primary {
   background-color: #006838;
   border: none;
   padding: 2px 5px;
   font-size: 0.8rem;
-}
+} */
 .btn-primary:hover {
   background-color: #004e2a;
 }
