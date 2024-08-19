@@ -7022,12 +7022,33 @@ body {
 }
 
 #logoutButton {
-  font-size: 0.75rem; /* Réduit la taille de la police à 75% de la normale */
-  padding: 5px 10px; /* Réduit l'espacement intérieur du bouton */
-  line-height: normal; /* Assure que la hauteur de ligne correspond à la taille de la police */
-  margin-right: 4px; /* Optionnel: Ajoute une petite marge à droite si le bouton est côte à côte avec d'autres éléments */
-  min-width: 50px; /* Définit une largeur minimale pour s'assurer que le bouton ne devient pas trop petit */
+  font-size: 0.75rem; 
+  padding: 5px 10px;
+  line-height: normal; 
+  margin-right: 4px; 
+  min-width: 50px; 
   justify-content: center;
+  margin-top: 15px;
+
+}
+#loginButton {
+  font-size: 0.75rem; 
+  padding: 5px 10px;
+  line-height: normal; 
+  margin-right: 4px; 
+  min-width: 50px; 
+  justify-content: center;
+  margin-top: 15px;
+
+}
+#registerButton {
+  font-size: 0.75rem; 
+  padding: 5px 10px;
+  line-height: normal; 
+  margin-right: 4px; 
+  min-width: 50px; 
+  justify-content: center;
+  margin-top: 15px;
 
 }
 
@@ -7083,12 +7104,6 @@ body {
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0,104,56,0.05);
 }
-/* .btn-primary {
-  background-color: #006838;
-  border: none;
-  padding: 2px 5px;
-  font-size: 0.8rem;
-} */
 .btn-primary:hover {
   background-color: #004e2a;
 }
