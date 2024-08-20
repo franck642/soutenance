@@ -6942,6 +6942,39 @@ ul.list-style-underline li {
   margin-top: 10px;
 }
 
+/* Styles généraux */
+/* body {
+  font-family: Arial, sans-serif;
+} */
+
+/* Titre de la section */
+.custom-title {
+  margin-bottom: 1rem; /* Ajoute un espace sous le titre */
+}
+#patient-name {
+  display: inline-block;
+  margin-right: 2px; /* Ajustez cette valeur selon vos besoins */
+}
+
+/* Alerte de succès */
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-success strong {
+  color: #0c5460;
+}
+
+/* Responsivité et espacement */
+@media (min-width: 992px) { /* Large devices (lg) */
+  .col-lg-8 {
+    padding-left: 1.25rem; /* ms-lg-5 */
+  }
+}
+
+
 /* Général */
 body {
   font-family: Arial, sans-serif;
