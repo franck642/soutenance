@@ -3,7 +3,7 @@ function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = "; expires=" + date.toUTCString();
-    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/; Secure; SameSite=Strict";
 }
 
 // Fonction pour récupérer un cookie
@@ -20,12 +20,12 @@ function getCookie(name) {
 
 // Fonction pour supprimer un cookie
 function deleteCookie(name) {
-    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; Secure; SameSite=Strict';
 }
 
 // Fonction pour mettre à jour l'affichage des boutons d'authentification et des informations utilisateur
 function updateAuthDisplay() {
-    const token = localStorage.getItem('medileaf');
+    const token = localStorage.getItem('medileaf_token');
     const loginRegisterButtons = document.getElementById('loginRegisterButtons');
     const logoutButtonContainer = document.getElementById('logoutButtonContainer');
     const userNameElement = document.getElementById('userName');
@@ -35,10 +35,10 @@ function updateAuthDisplay() {
     if (logoutButtonContainer) logoutButtonContainer.style.display = token ? 'block' : 'none';
     
     if (token) {
-        const name = getCookie('connUsername');
-        const email = getCookie('connEmail');
-        if (userNameElement) userNameElement.textContent = name;
-        if (userEmailElement) userEmailElement.textContent = email;
+        const name = localStorage.getItem('medileaf_username');
+        const email = localStorage.getItem('medileaf_email');
+        if (userNameElement) userNameElement.textContent = name || '';
+        if (userEmailElement) userEmailElement.textContent = email || '';
     } else {
         if (userNameElement) userNameElement.textContent = '';
         if (userEmailElement) userEmailElement.textContent = '';
@@ -62,9 +62,10 @@ function handleLogin(event) {
     .then(response => response.json())
     .then(data => {
         if (data.message === "login successfully") {
-            localStorage.setItem('medileaf', data.token);
-            setCookie('connUsername', data.userconnected.name, 7);
-            setCookie('connEmail', data.userconnected.email, 7);
+            localStorage.setItem('medileaf_token', data.token);
+            localStorage.setItem('medileaf_username', data.userconnected.name);
+            localStorage.setItem('medileaf_email', data.userconnected.email);
+            setCookie('medileaf_auth', 'true', 7);
             updateAuthDisplay();
             setTimeout(() => window.location.href = 'index.html', 100);
         } else {
@@ -80,9 +81,10 @@ function handleLogin(event) {
 // Fonction pour gérer la déconnexion
 function handleLogout(event) {
     event.preventDefault();
-    localStorage.removeItem('medileaf');
-    deleteCookie('connUsername');
-    deleteCookie('connEmail');
+    localStorage.removeItem('medileaf_token');
+    localStorage.removeItem('medileaf_username');
+    localStorage.removeItem('medileaf_email');
+    deleteCookie('medileaf_auth');
     updateAuthDisplay();
     window.location.href = 'index.html';
 }

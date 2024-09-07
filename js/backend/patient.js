@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fonction pour récupérer les paramètres de l'URL
     function getUrlParameter(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -7,52 +6,59 @@ document.addEventListener('DOMContentLoaded', function() {
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    // Récupérer l'ID à partir de l'URL
     var id = getUrlParameter('id');
-
-    // Afficher l'ID dans la console
     console.log('ID:', id);
 
-    // Vérifier si l'ID est présent dans l'URL
-    if (id) {
-        // URL de l'API et jeton d'authentification
-        var url = `https://medileaf-zgwn.onrender.com/hospital/patient/${id}`;
-        var token = localStorage.getItem('medileaf');
+    if (!id) {
+        showError("ID du patient manquant dans l'URL.");
+        return;
+    }
 
-        // Vérifier si le jeton est disponible
-        if (!token) {
-            console.error('No token found in localStorage');
-            return;
+    var token = localStorage.getItem('medileaf');
+    if (!token) {
+        showError("Vous n'êtes pas connecté. Redirection vers la page de connexion...");
+        setTimeout(() => {
+            window.location.href = 'login.html';  // Assurez-vous que c'est le bon chemin
+        }, 3000);
+        return;
+    }
+
+    var url = `https://medileaf-zgwn.onrender.com/hospital/patient/${id}`;
+    var settings = {
+        "url": url,
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": "Bearer " + token
         }
+    };
 
-        // Paramètres de la requête AJAX
-        var settings = {
-            "url": url,
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer " + token
+    $.ajax(settings)
+        .done(function(response) {
+            console.log('moi', response)
+            if (response && response.username && response.qrcode) {
+                $('#patient-name').text(response.username);
+                $('#qrcode-img').attr('src', response.qrcode);
+                $('#download-qr').attr('href', response.qrcode);
+                $('#download-qr').attr('download', 'qrcode.png');
+            } else {
+                showError("Les données du patient sont incomplètes ou mal formatées.");
             }
-        };
-
-        // Effectuer la requête AJAX
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-
-            // Mettre à jour les éléments HTML avec les données du patient
-            $('#patient-name').text(response.username);
-            
-            // Afficher le QR code
-            var qrcodeBase64 = response.qrcode;
-            $('#qrcode-img').attr('src', qrcodeBase64);
-            $('#download-qr').attr('href', qrcodeBase64);
-            $('#download-qr').attr('download', 'qrcode.png');
-        }).fail(function(jqXHR, textStatus, errorThrown) {
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            showError(`Erreur lors de la récupération des données: ${textStatus}`);
             console.error('Error fetching patient data:', textStatus, errorThrown);
         });
-    } else {
-        console.log("ID non trouvé dans l'URL");
+
+    function showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.textContent = message;
+        errorDiv.style.color = 'red';
+        errorDiv.style.padding = '10px';
+        errorDiv.style.margin = '10px 0';
+        errorDiv.style.border = '1px solid red';
+        document.body.prepend(errorDiv);
     }
 });
