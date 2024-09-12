@@ -25,7 +25,7 @@ function deleteCookie(name) {
 
 // Fonction pour mettre à jour l'affichage des boutons d'authentification et des informations utilisateur
 function updateAuthDisplay() {
-    const token = localStorage.getItem('medileaf_token');
+    const token = localStorage.getItem('medileaf');
     const loginRegisterButtons = document.getElementById('loginRegisterButtons');
     const logoutButtonContainer = document.getElementById('logoutButtonContainer');
     const userNameElement = document.getElementById('userName');
@@ -62,7 +62,7 @@ function handleLogin(event) {
     .then(response => response.json())
     .then(data => {
         if (data.message === "login successfully") {
-            localStorage.setItem('medileaf_token', data.token);
+            localStorage.setItem('medileaf', data.token);
             localStorage.setItem('medileaf_username', data.userconnected.name);
             localStorage.setItem('medileaf_email', data.userconnected.email);
             setCookie('medileaf_auth', 'true', 7);
@@ -81,7 +81,7 @@ function handleLogin(event) {
 // Fonction pour gérer la déconnexion
 function handleLogout(event) {
     event.preventDefault();
-    localStorage.removeItem('medileaf_token');
+    localStorage.removeItem('medileaf');
     localStorage.removeItem('medileaf_username');
     localStorage.removeItem('medileaf_email');
     deleteCookie('medileaf_auth');
