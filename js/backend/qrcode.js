@@ -17,7 +17,7 @@ $(document).ready(function() {
             let url = new URL(decodedText);
             let id = url.pathname.split('/').pop();
             // Rediriger vers la nouvelle URL avec l'ID
-            window.location.href = `http://localhost:5500/qrcode.html?id=${id}`;
+            window.location.href = `https://master--biomedicale.netlify.app/qrcode.html?id=${id}`;
 
             // Arrêtez le scanner et fermez le modal
             clearInterval(qrCodeTimer);
