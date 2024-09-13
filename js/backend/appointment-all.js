@@ -13,7 +13,8 @@ function fetchAppointments() {
     })
     .then(response => response.json())
     .then(data => {
-        displayAppointments(data.message);
+        console.log('Données des rendez-vous:', data);
+        displayAppointments(data.message);     
     })
     .catch(error => {
         console.error('Erreur lors de la récupération des rendez-vous:', error);
