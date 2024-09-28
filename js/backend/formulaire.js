@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => {
             Swal.close(); // Fermer le spinner de SweetAlert2
             if (response.message === "user create successfully ") { // Notez l'espace à la fin
-                window.location.href = `http://localhost:5500/qr.html?id=${response.patientId}`;
+                window.location.href = `https://master--biomedicale.netlify.app/qr.html?id=${response.patientId}`;
                 console.log("Réponse du serveur:", response);
             } else {               
                 Swal.fire({
